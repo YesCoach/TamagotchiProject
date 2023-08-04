@@ -21,7 +21,7 @@ extension UIButton {
 
         // TODO: - deprecated 메서드 보완하기
 
-        titleEdgeInsets = .init(top: 4, left: 4, bottom: 4, right: 4)
+        titleEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
         isEnabled = false
 
         if let text {

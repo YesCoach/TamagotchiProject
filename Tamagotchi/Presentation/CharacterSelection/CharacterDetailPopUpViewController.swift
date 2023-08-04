@@ -77,7 +77,6 @@ private extension CharacterDetailPopUpViewController {
         imageView.image = .init(named: tamagotchiType?.thumbnailImage ?? "noImage")
         imageView.contentMode = .scaleAspectFill
 
-        nameButton.setupNameButton()
         nameButton.setupNameButton(tamagotchiType?.name)
 
         separator.backgroundColor = .border
@@ -86,6 +85,7 @@ private extension CharacterDetailPopUpViewController {
         infoLabel.setupTextStyleBody()
         infoLabel.numberOfLines = 0
         infoLabel.text = tamagotchiType?.description
+        infoLabel.textAlignment = .center
 
         cancelButton.setTitle("취소", for: .normal)
         cancelButton.backgroundColor = .background

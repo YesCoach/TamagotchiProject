@@ -80,7 +80,6 @@
 				89CA33F72A7CD59500DA1978 /* Domain */,
 				89CA33ED2A7CA88C00DA1978 /* Presentation */,
 				89CA33F42A7CCB3D00DA1978 /* Extension */,
-				89CA33DE2A7C9CED00DA1978 /* Main.storyboard */,
 				89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */,
 				89CA33E12A7C9CEF00DA1978 /* Assets.xcassets */,
 				89CA33E62A7C9CEF00DA1978 /* Info.plist */,
@@ -100,6 +99,7 @@
 		89CA33ED2A7CA88C00DA1978 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				89CA33DE2A7C9CED00DA1978 /* Main.storyboard */,
 				89CA34082A7D005500DA1978 /* Main */,
 				89CA33FF2A7CDEF000DA1978 /* CharacterSelection */,
 			);
