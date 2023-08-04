@@ -9,13 +9,17 @@ import UIKit
 
 final class CharacterDetailPopUpViewController: UIViewController {
 
+    static let identifier = "CharacterDetailPopUpViewController"
+
     // MARK: - UI Components
 
+    @IBOutlet var popUpview: UIView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameButton: UIButton!
     @IBOutlet var separator: UIView!
     @IBOutlet var infoLabel: UILabel!
 
+    @IBOutlet var bottomSeparator: UIView!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var okButton: UIButton!
 
@@ -37,6 +41,16 @@ final class CharacterDetailPopUpViewController: UIViewController {
     }
 }
 
+// MARK: - Method
+
+extension CharacterDetailPopUpViewController {
+
+    func configure(with type: TamagotchiType) {
+        self.tamagotchiType = type
+    }
+
+}
+
 // MARK: - Private Method
 
 private extension CharacterDetailPopUpViewController {
@@ -50,7 +64,8 @@ private extension CharacterDetailPopUpViewController {
         nameButton.setupNameButton()
         nameButton.setupNameButton(tamagotchiType?.name)
 
-        separator.backgroundColor = .separator
+        separator.backgroundColor = .border
+        bottomSeparator.backgroundColor = .separator
 
         infoLabel.setupTextStyleBody()
         infoLabel.numberOfLines = 0
@@ -63,5 +78,10 @@ private extension CharacterDetailPopUpViewController {
         okButton.setTitle("시작하기", for: .normal)
         okButton.backgroundColor = .background
         okButton.setTitleColor(.border, for: .normal)
+
+        view.backgroundColor = .black.withAlphaComponent(0.3)
+
+        popUpview.layer.cornerRadius = 10.0
+        popUpview.clipsToBounds = true
     }
 }

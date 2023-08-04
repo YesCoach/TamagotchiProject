@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjq-8d-6Ef">
-                                <rect key="frame" x="50" y="248" width="293" height="381"/>
+                                <rect key="frame" x="50" y="198.66666666666666" width="293" height="439.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdB-x7-DUx">
                                         <rect key="frame" x="101.66666666666666" y="40" width="90" height="90"/>
@@ -76,7 +76,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-4K-PiT">
-                                        <rect key="frame" x="109" y="138" width="75" height="28"/>
+                                        <rect key="frame" x="109" y="138.00000000000003" width="75" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="g9n-C7-t2R"/>
                                         </constraints>
@@ -84,20 +84,27 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPT-mg-8p7" userLabel="Separator">
-                                        <rect key="frame" x="40" y="190" width="213" height="1"/>
+                                        <rect key="frame" x="40" y="190.00000000000003" width="213" height="0.66666666666665719"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="28R-OQ-kQR"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="28R-OQ-kQR"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exD-Az-Alt">
-                                        <rect key="frame" x="40" y="215" width="213" height="108"/>
+                                        <rect key="frame" x="40" y="214.66666666666663" width="213" height="166.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYC-VV-IDg" userLabel="bottomSeparator">
+                                        <rect key="frame" x="0.0" y="389" width="293" height="0.66666666666668561"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="VFd-p6-3IP"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-EJ-8DM">
-                                        <rect key="frame" x="0.0" y="331" width="293" height="50"/>
+                                        <rect key="frame" x="0.0" y="389.66666666666674" width="293" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5N-Eo-G9i">
                                                 <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="50"/>
@@ -123,14 +130,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="l2t-EJ-8DM" firstAttribute="top" secondItem="exD-Az-Alt" secondAttribute="bottom" constant="8" id="3EM-hg-QBV"/>
+                                    <constraint firstItem="wYC-VV-IDg" firstAttribute="top" secondItem="exD-Az-Alt" secondAttribute="bottom" constant="8" id="3EM-hg-QBV"/>
                                     <constraint firstItem="b6r-4K-PiT" firstAttribute="centerX" secondItem="Pjq-8d-6Ef" secondAttribute="centerX" id="3eN-8i-avd"/>
                                     <constraint firstItem="l2t-EJ-8DM" firstAttribute="leading" secondItem="Pjq-8d-6Ef" secondAttribute="leading" id="AUm-g8-eHr"/>
+                                    <constraint firstAttribute="trailing" secondItem="wYC-VV-IDg" secondAttribute="trailing" id="FPv-rh-HzR"/>
                                     <constraint firstItem="rdB-x7-DUx" firstAttribute="top" secondItem="Pjq-8d-6Ef" secondAttribute="top" constant="40" id="Jyn-1j-1sP"/>
                                     <constraint firstItem="b6r-4K-PiT" firstAttribute="top" secondItem="rdB-x7-DUx" secondAttribute="bottom" constant="8" id="K8u-00-v0i"/>
-                                    <constraint firstAttribute="width" secondItem="Pjq-8d-6Ef" secondAttribute="height" multiplier="1:1.3" id="UNd-e9-CLN"/>
+                                    <constraint firstAttribute="width" secondItem="Pjq-8d-6Ef" secondAttribute="height" multiplier="1:1.5" id="UNd-e9-CLN"/>
                                     <constraint firstItem="exD-Az-Alt" firstAttribute="trailing" secondItem="UPT-mg-8p7" secondAttribute="trailing" id="VFv-ZC-JsW"/>
                                     <constraint firstItem="UPT-mg-8p7" firstAttribute="top" secondItem="b6r-4K-PiT" secondAttribute="bottom" constant="24" id="YRf-Xz-MRZ"/>
+                                    <constraint firstItem="wYC-VV-IDg" firstAttribute="leading" secondItem="Pjq-8d-6Ef" secondAttribute="leading" id="YUM-Jj-cQm"/>
                                     <constraint firstItem="exD-Az-Alt" firstAttribute="top" secondItem="UPT-mg-8p7" secondAttribute="bottom" constant="24" id="dgy-fs-Mhw"/>
                                     <constraint firstAttribute="trailing" secondItem="l2t-EJ-8DM" secondAttribute="trailing" id="eCq-KZ-bIN"/>
                                     <constraint firstItem="rdB-x7-DUx" firstAttribute="centerX" secondItem="Pjq-8d-6Ef" secondAttribute="centerX" id="lSv-Y9-Ala"/>
@@ -138,6 +147,7 @@
                                     <constraint firstItem="exD-Az-Alt" firstAttribute="leading" secondItem="UPT-mg-8p7" secondAttribute="leading" id="pYQ-nN-1kW"/>
                                     <constraint firstItem="UPT-mg-8p7" firstAttribute="leading" secondItem="Pjq-8d-6Ef" secondAttribute="leading" constant="40" id="w0u-fV-mZS"/>
                                     <constraint firstAttribute="trailing" secondItem="UPT-mg-8p7" secondAttribute="trailing" constant="40" id="yg6-x9-Wya"/>
+                                    <constraint firstItem="wYC-VV-IDg" firstAttribute="bottom" secondItem="l2t-EJ-8DM" secondAttribute="top" id="zGf-ix-Skb"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -146,15 +156,17 @@
                         <constraints>
                             <constraint firstItem="mLj-VZ-EKA" firstAttribute="trailing" secondItem="Pjq-8d-6Ef" secondAttribute="trailing" constant="50" id="4kr-zV-Aby"/>
                             <constraint firstItem="Pjq-8d-6Ef" firstAttribute="leading" secondItem="mLj-VZ-EKA" secondAttribute="leading" constant="50" id="XHF-UF-z0K"/>
-                            <constraint firstItem="Pjq-8d-6Ef" firstAttribute="centerY" secondItem="mLj-VZ-EKA" secondAttribute="centerY" id="x5S-aE-WKD"/>
+                            <constraint firstItem="Pjq-8d-6Ef" firstAttribute="centerY" secondItem="mLj-VZ-EKA" secondAttribute="centerY" constant="-20" id="x5S-aE-WKD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomSeparator" destination="wYC-VV-IDg" id="gZ8-87-icJ"/>
                         <outlet property="cancelButton" destination="H5N-Eo-G9i" id="sbo-fb-R5c"/>
                         <outlet property="imageView" destination="rdB-x7-DUx" id="uFh-Ws-eTe"/>
                         <outlet property="infoLabel" destination="exD-Az-Alt" id="rGN-af-bPt"/>
                         <outlet property="nameButton" destination="b6r-4K-PiT" id="oUH-PE-YK8"/>
                         <outlet property="okButton" destination="fO8-El-dGZ" id="UsB-54-ERc"/>
+                        <outlet property="popUpview" destination="Pjq-8d-6Ef" id="Hop-Md-atK"/>
                         <outlet property="separator" destination="UPT-mg-8p7" id="d1B-8O-UsN"/>
                     </connections>
                 </viewController>

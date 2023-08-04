@@ -9,9 +9,9 @@ import Foundation
 
 enum TamagotchiType: Int, CaseIterable {
 
-    case ddakkeum = 1
-    case bangsil = 2
-    case banjjak = 3
+    case ddakkeum = 0
+    case bangsil = 1
+    case banjjak = 2
 
 }
 
@@ -53,12 +53,12 @@ extension TamagotchiType {
     /// imageQuery에 현재 레벨을 붙이면 이미지 에셋의 이름이 됩니다.
     /// ex) .ddakkeum.imageQuery + \(level) = "1-1"(따끔이의 1레벨 이미지)
     var imageQuery: String {
-        return "\(self.rawValue)-"
+        return "\(self.rawValue + 1)-"
     }
 
     /// 캐릭터 선택창에서 사용할 썸네일 이미지입니다.
     var thumbnailImage: String {
-        return "\(self.rawValue)-6"
+        return "\(self.rawValue + 1)-6"
     }
 
 }

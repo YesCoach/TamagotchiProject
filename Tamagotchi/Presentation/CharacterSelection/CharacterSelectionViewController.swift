@@ -50,14 +50,38 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
         else { return UICollectionViewCell() }
 
         let row = indexPath.row
-
-        if row < data.count {
-            cell.configure(with: .allCases[row])
+        if let type = TamagotchiType(rawValue: row) {
+            cell.configure(with: type)
         } else {
             cell.configureEmpty()
         }
 
         return cell
+    }
+}
+
+extension CharacterSelectionViewController: UICollectionViewDelegate {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        guard let type = TamagotchiType(rawValue: indexPath.row)
+        else {
+            // 준비중이에요 얼럿 처리
+            return
+        }
+        guard let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        ).instantiateViewController(
+            withIdentifier: CharacterDetailPopUpViewController.identifier
+        ) as? CharacterDetailPopUpViewController
+        else { return }
+        viewController.configure(with: type)
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .overFullScreen
+        present(viewController, animated: true)
     }
 }
 
@@ -78,6 +102,7 @@ private extension CharacterSelectionViewController {
         let nib = UINib(nibName: CharacterSelectionCell.identifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: CharacterSelectionCell.identifier)
         collectionView.dataSource = self
+        collectionView.delegate = self
 
         let layout = UICollectionViewFlowLayout()
         let spacing = 16.0
