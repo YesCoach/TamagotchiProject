@@ -74,10 +74,8 @@ private extension CharacterDetailPopUpViewController {
 
         // TODO: - UI 리팩토링
 
-        imageView.layer.cornerRadius = 45.0
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 2.0
         imageView.image = .init(named: tamagotchiType?.thumbnailImage ?? "noImage")
+        imageView.contentMode = .scaleAspectFill
 
         nameButton.setupNameButton()
         nameButton.setupNameButton(tamagotchiType?.name)

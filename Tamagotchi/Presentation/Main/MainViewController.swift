@@ -23,11 +23,12 @@ final class MainViewController: UIViewController {
     @IBOutlet var riceButton: UIButton!
     @IBOutlet var waterButton: UIButton!
 
-    private var character: Tamagotchi?
+    private var tamagotchi: Tamagotchi?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tamagotchi = Tamagotchi(type: .ddakkeum, level: 1, rice: 1, water: 1)
+        configureUI()
     }
 
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
@@ -43,6 +44,29 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
 
     func configureUI() {
+        guard let tamagotchi else { return }
+        bubbleLabel.text = ""
+        bubbleLabel.numberOfLines = 0
+        bubbleLabel.setupTextStyleBody()
 
+        tamagotchiImageView.image = .init(named: tamagotchi.imageName)
+        tamagotchiImageView.contentMode = .scaleAspectFill
+
+        nameButton.setupNameButton(tamagotchi.type.name)
+        statusLabel.text = tamagotchi.info
+        statusLabel.setupTextStyleSubTitle()
+
+        configureButton()
+    }
+
+    func configureButton() {
+        var config = UIButton.Configuration.feedingButtonStyle()
+        config.image = .init(systemName: "drop.circle")
+        config.title = "밥먹기"
+        riceButton.configuration = config
+
+        config.image = .init(systemName: "leaf.circle")
+        config.title = "물먹기"
+        waterButton.configuration = config
     }
 }

@@ -13,7 +13,7 @@ extension UILabel {
     /// font size: 15, .regular
     /// textColor: .border
     func setupTextStyleTitle() {
-        font = .systemFont(ofSize: 15, weight: .regular)
+        font = .systemFont(ofSize: 15, weight: .bold)
         textColor = .border
     }
 
@@ -21,7 +21,7 @@ extension UILabel {
     /// font size: 13, .regular
     /// textColor: .border
     func setupTextStyleSubTitle() {
-        font = .systemFont(ofSize: 14, weight: .regular)
+        font = .systemFont(ofSize: 14, weight: .bold)
         textColor = .border
     }
 

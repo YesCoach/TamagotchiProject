@@ -50,9 +50,9 @@ extension TamagotchiType {
         }
     }
 
-    /// imageQuery에 현재 레벨을 붙이면 이미지 에셋의 이름이 됩니다.
+    /// imageNameQuery에 현재 레벨을 붙이면 이미지 에셋의 이름이 됩니다.
     /// ex) .ddakkeum.imageQuery + \(level) = "1-1"(따끔이의 1레벨 이미지)
-    var imageQuery: String {
+    var imageNameQuery: String {
         return "\(self.rawValue + 1)-"
     }
 

@@ -37,6 +37,7 @@ extension CharacterSelectionCell {
 
     func configure(with type: TamagotchiType) {
         imageView.image = UIImage(named: type.thumbnailImage)
+        imageView.contentMode = .scaleAspectFill
         nameButton.setTitle(type.name, for: .normal)
     }
 
@@ -51,10 +52,6 @@ extension CharacterSelectionCell {
 private extension CharacterSelectionCell {
 
     func configureUI() {
-        imageView.layer.cornerRadius = 45.0
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 2.0
-
         nameButton.setupNameButton()
     }
 
