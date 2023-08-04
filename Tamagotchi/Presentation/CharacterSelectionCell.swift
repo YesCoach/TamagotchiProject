@@ -24,12 +24,26 @@ class CharacterSelectionCell: UICollectionViewCell {
         configureUI()
     }
 
+    override func prepareForReuse() {
+        imageView.image = nil
+        nameButton.setTitle(nil, for: .normal)
+    }
+
 }
 
 // MARK: - Methods
 
 extension CharacterSelectionCell {
 
+    func configure(with type: TamagotchiType) {
+        imageView.image = UIImage(named: type.thumbnailImage)
+        nameButton.setTitle(type.description, for: .normal)
+    }
+
+    func configureEmpty() {
+        imageView.image = UIImage(named: "noImage")
+        nameButton.setTitle("준비중이에요", for: .normal)
+    }
 }
 
 // MARK: - Private Methods
@@ -52,8 +66,8 @@ private extension CharacterSelectionCell {
         // TODO: - deprecated 메서드 보완하기
 
         nameButton.titleEdgeInsets = .init(top: 4, left: 4, bottom: 4, right: 4)
-
         nameButton.setTitle("따끔따끔 다마고치", for: .normal)
+        nameButton.isEnabled = false
     }
 
 }

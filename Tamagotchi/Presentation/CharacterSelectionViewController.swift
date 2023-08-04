@@ -15,6 +15,9 @@ final class CharacterSelectionViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
 
+    // MARK: - Properties
+    private let data = TamagotchiType.allCases
+
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -33,7 +36,7 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 20
+        return data.count + 20
     }
 
     func collectionView(
@@ -45,6 +48,14 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? CharacterSelectionCell
         else { return UICollectionViewCell() }
+
+        let row = indexPath.row
+
+        if row < data.count {
+            cell.configure(with: .allCases[row])
+        } else {
+            cell.configureEmpty()
+        }
 
         return cell
     }
