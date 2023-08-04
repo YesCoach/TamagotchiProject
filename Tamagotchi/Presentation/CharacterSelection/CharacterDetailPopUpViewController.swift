@@ -1,0 +1,67 @@
+//
+//  CharacterDetailPopUpViewController.swift
+//  Tamagotchi
+//
+//  Created by 박태현 on 2023/08/04.
+//
+
+import UIKit
+
+final class CharacterDetailPopUpViewController: UIViewController {
+
+    // MARK: - UI Components
+
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nameButton: UIButton!
+    @IBOutlet var separator: UIView!
+    @IBOutlet var infoLabel: UILabel!
+
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var okButton: UIButton!
+
+    private var tamagotchiType: TamagotchiType?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+
+    // MARK: - Actions
+
+    @IBAction func didCancelButtonTouched(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+
+    @IBAction func didOkButtonTouched(_ sender: UIButton) {
+        // TODO: - 시작화면으로 전환
+    }
+}
+
+// MARK: - Private Method
+
+private extension CharacterDetailPopUpViewController {
+
+    func configureUI() {
+        imageView.layer.cornerRadius = 45.0
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 2.0
+        imageView.image = .init(named: tamagotchiType?.thumbnailImage ?? "noImage")
+
+        nameButton.setupNameButton()
+        nameButton.setupNameButton(tamagotchiType?.name)
+
+        separator.backgroundColor = .separator
+
+        infoLabel.setupTextStyleBody()
+        infoLabel.numberOfLines = 0
+        infoLabel.text = tamagotchiType?.description
+
+        cancelButton.setTitle("취소", for: .normal)
+        cancelButton.backgroundColor = .background
+        cancelButton.setTitleColor(.border, for: .normal)
+
+        okButton.setTitle("시작하기", for: .normal)
+        okButton.backgroundColor = .background
+        okButton.setTitleColor(.border, for: .normal)
+    }
+}
