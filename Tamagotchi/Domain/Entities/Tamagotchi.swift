@@ -9,17 +9,26 @@ import Foundation
 
 struct Tamagotchi {
     var type: TamagotchiType
-    var level: Int = 1
     var rice: Int = 0
     var water: Int = 0
 }
 
 extension Tamagotchi {
 
+    /// 레벨 계산법에 따른 레벨을 계산해서 반환합니다.
+    var level: Int {
+        get {
+            var value = ((rice / 5) + (water / 2)) / 10
+            if value < 2 { return 1 }
+            if value > 10 { return 10 }
+            return value
+        }
+    }
+
     /// 해당 타마고치의 이미지 이름을 반환합니다.
     /// 이미지 이름: "\(타마고치 고유 번호)-\(level)"
     var imageName: String {
-        return type.imageNameQuery + "\(level)"
+        return type.imageNameQuery + "\(level < 10 ? level : 9)"
     }
 
 

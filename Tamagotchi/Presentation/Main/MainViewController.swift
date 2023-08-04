@@ -23,7 +23,23 @@ final class MainViewController: UIViewController {
     @IBOutlet var riceButton: UIButton!
     @IBOutlet var waterButton: UIButton!
 
-    private var tamagotchi: Tamagotchi?
+    private var tamagotchi: Tamagotchi {
+        didSet {
+            tamagotchiImageView.image = UIImage(named: tamagotchi.imageName)
+            statusLabel.text = tamagotchi.info
+        }
+    }
+
+    // MARK: - Initializer
+
+    init?(tamagotchi: Tamagotchi, coder: NSCoder) {
+        self.tamagotchi = tamagotchi
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - View LifeCycle
 
@@ -47,6 +63,9 @@ final class MainViewController: UIViewController {
         feedWater()
     }
 
+    @IBAction func didBackgroudViewTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - Method
@@ -66,7 +85,6 @@ private extension MainViewController {
     func configureUI() {
         configureButton()
 
-        guard let tamagotchi else { return }
         bubbleLabel.text = ""
         bubbleLabel.numberOfLines = 0
         bubbleLabel.setupTextStyleBody()
@@ -105,20 +123,20 @@ private extension MainViewController {
 
     func feedRice() {
         if let count = Int(riceTextField.text!), count < 100 {
-            tamagotchi?.rice += count
+            tamagotchi.rice += count
             UserDefaultsManager.currentRice += count
         } else {
-            tamagotchi?.rice += 1
+            tamagotchi.rice += 1
             UserDefaultsManager.currentRice += 1
         }
     }
 
     func feedWater() {
         if let count = Int(waterTextField.text!), count < 100 {
-            tamagotchi?.water += count
+            tamagotchi.water += count
             UserDefaultsManager.currentWater += count
         } else {
-            tamagotchi?.water += 1
+            tamagotchi.water += 1
             UserDefaultsManager.currentWater += 1
         }
     }

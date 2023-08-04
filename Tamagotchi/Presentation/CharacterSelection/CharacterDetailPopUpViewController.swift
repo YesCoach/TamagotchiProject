@@ -40,16 +40,21 @@ final class CharacterDetailPopUpViewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-        guard let viewController = UIStoryboard(
+        guard let tamagotchiType else { return }
+
+        let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
         ).instantiateViewController(
-            identifier: MainViewController.identifier
-        ) as? MainViewController
-        else { return }
-
-        guard let tamagotchiType else { return }
-        viewController.configureData(with: Tamagotchi(type: tamagotchiType))
+            identifier: MainViewController.identifier,
+            creator: { coder in
+                let viewController = MainViewController(
+                    tamagotchi: .init(type: tamagotchiType),
+                    coder: coder
+                )
+                return viewController
+            }
+        )
 
         let nav = UINavigationController(rootViewController: viewController)
 

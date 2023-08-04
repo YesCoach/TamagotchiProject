@@ -20,7 +20,6 @@ final class UserDefaultsManager {
         get {
             return Tamagotchi(
                 type: .init(rawValue: currentType) ?? .bangsil,
-                level: currentLevel,
                 rice: currentRice,
                 water: currentWater
             )
