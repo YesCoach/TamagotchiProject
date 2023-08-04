@@ -53,8 +53,16 @@ private extension MainViewController {
         tamagotchiImageView.contentMode = .scaleAspectFill
 
         nameButton.setupNameButton(tamagotchi.type.name)
+
         statusLabel.text = tamagotchi.info
         statusLabel.setupTextStyleSubTitle()
+
+        riceTextField.setupBottomBorder()
+        riceTextField.placeholder = "밥주세용"
+        riceTextField.textAlignment = .center
+        waterTextField.setupBottomBorder()
+        waterTextField.placeholder = "물주세용"
+        waterTextField.textAlignment = .center
 
         configureButton()
     }

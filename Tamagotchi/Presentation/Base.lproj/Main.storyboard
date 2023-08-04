@@ -86,12 +86,12 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46b-og-tik">
-                                <rect key="frame" x="159" y="523" width="75" height="35"/>
+                                <rect key="frame" x="173.66666666666666" y="523" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfl-of-bqb">
-                                <rect key="frame" x="233" y="619" width="80" height="35"/>
+                                <rect key="frame" x="233" y="614" width="80" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ED4-bS-cJh"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="j8O-aH-LQI"/>
@@ -104,23 +104,23 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb9-Ew-VUy">
-                                <rect key="frame" x="175.66666666666666" y="574" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="569" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbx-Bx-gzh">
-                                <rect key="frame" x="60" y="619" width="157" height="34"/>
+                                <rect key="frame" x="60" y="614" width="157" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XGi-wo-jhj">
-                                <rect key="frame" x="60" y="669" width="157" height="34"/>
+                                <rect key="frame" x="60" y="665" width="157" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mj6-l4-7Lp">
-                                <rect key="frame" x="233" y="669" width="80" height="35"/>
+                                <rect key="frame" x="233" y="665" width="80" height="35"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -136,6 +136,7 @@
                             <constraint firstItem="gb6-6W-Xby" firstAttribute="centerX" secondItem="QkH-iW-eFb" secondAttribute="centerX" id="3MB-RY-Odk"/>
                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="trailing" secondItem="gfl-of-bqb" secondAttribute="trailing" id="3bF-3G-m92"/>
                             <constraint firstItem="Eb9-Ew-VUy" firstAttribute="centerX" secondItem="QkH-iW-eFb" secondAttribute="centerX" id="81f-FH-DCt"/>
+                            <constraint firstItem="XGi-wo-jhj" firstAttribute="height" secondItem="Fbx-Bx-gzh" secondAttribute="height" id="8RF-ik-xcO"/>
                             <constraint firstItem="QkH-iW-eFb" firstAttribute="trailing" secondItem="gfl-of-bqb" secondAttribute="trailing" constant="80" id="A2Y-On-Md0"/>
                             <constraint firstItem="gb6-6W-Xby" firstAttribute="top" secondItem="QkH-iW-eFb" secondAttribute="top" constant="60" id="D2X-Ta-PN6"/>
                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="height" secondItem="gfl-of-bqb" secondAttribute="height" id="KGh-3q-WQy"/>
@@ -156,6 +157,7 @@
                             <constraint firstItem="Yoa-Pv-PD0" firstAttribute="leading" secondItem="gb6-6W-Xby" secondAttribute="leading" id="m0d-gq-1wa"/>
                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="leading" secondItem="gfl-of-bqb" secondAttribute="leading" id="noK-lD-bbq"/>
                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="width" secondItem="gfl-of-bqb" secondAttribute="width" id="ohS-PT-U57"/>
+                            <constraint firstItem="Fbx-Bx-gzh" firstAttribute="height" secondItem="gfl-of-bqb" secondAttribute="height" id="v8M-7e-Ymb"/>
                             <constraint firstItem="XGi-wo-jhj" firstAttribute="width" secondItem="Fbx-Bx-gzh" secondAttribute="width" id="xUB-Mz-4Sg"/>
                         </constraints>
                     </view>
