@@ -122,23 +122,25 @@ private extension MainViewController {
     }
 
     func feedRice() {
-        if let count = Int(riceTextField.text!), count < 100 {
-            tamagotchi.rice += count
-            UserDefaultsManager.currentRice += count
+        if let count = Int(riceTextField.text!) {
+            tamagotchi.rice += count < 100 ? count : 0
+            UserDefaultsManager.currentRice += count < 100 ? count : 0
         } else {
             tamagotchi.rice += 1
             UserDefaultsManager.currentRice += 1
         }
+        riceTextField.text = nil
     }
 
     func feedWater() {
-        if let count = Int(waterTextField.text!), count < 100 {
-            tamagotchi.water += count
-            UserDefaultsManager.currentWater += count
+        if let count = Int(waterTextField.text!) {
+            tamagotchi.water += count < 50 ? count : 0
+            UserDefaultsManager.currentWater += count < 50 ? count : 0
         } else {
             tamagotchi.water += 1
             UserDefaultsManager.currentWater += 1
         }
+        waterTextField.text = nil
     }
 
 }
