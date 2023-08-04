@@ -18,10 +18,10 @@ extension Tamagotchi {
     /// 레벨 계산법에 따른 레벨을 계산해서 반환합니다.
     var level: Int {
         get {
-            var value = ((rice / 5) + (water / 2)) / 10
+            var value = ((Double(rice) / 5) + (Double(water) / 2)) / 10
             if value < 2 { return 1 }
             if value > 10 { return 10 }
-            return value
+            return Int(value)
         }
     }
 
