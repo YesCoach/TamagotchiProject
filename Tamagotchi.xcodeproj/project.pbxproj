@@ -24,6 +24,8 @@
 		89CA34072A7D004D00DA1978 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34062A7D004D00DA1978 /* MainViewController.swift */; };
 		89CA340A2A7D11C300DA1978 /* UIButtonConfiguration+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34092A7D11C300DA1978 /* UIButtonConfiguration+.swift */; };
 		89CA340C2A7D1D6100DA1978 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA340B2A7D1D6100DA1978 /* UITextField+.swift */; };
+		89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */; };
+		89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		89CA34062A7D004D00DA1978 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		89CA34092A7D11C300DA1978 /* UIButtonConfiguration+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtonConfiguration+.swift"; sourceTree = "<group>"; };
 		89CA340B2A7D1D6100DA1978 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 				89CA33EC2A7CA87C00DA1978 /* Application */,
 				89CA33F72A7CD59500DA1978 /* Domain */,
 				89CA33ED2A7CA88C00DA1978 /* Presentation */,
+				89CA340D2A7D277600DA1978 /* Data */,
 				89CA33F42A7CCB3D00DA1978 /* Extension */,
 				89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */,
 				89CA33E12A7C9CEF00DA1978 /* Assets.xcassets */,
@@ -156,6 +161,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		89CA340D2A7D277600DA1978 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */,
+				89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */,
+				89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */,
 				89CA340C2A7D1D6100DA1978 /* UITextField+.swift in Sources */,
 				89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */,
 				89CA33FC2A7CD83C00DA1978 /* TamagotchiType.swift in Sources */,
@@ -238,6 +253,7 @@
 				89CA34072A7D004D00DA1978 /* MainViewController.swift in Sources */,
 				89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */,
 				89CA33FA2A7CD5EA00DA1978 /* Tamagotchi.swift in Sources */,
+				89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */,
 				89CA34052A7CE69B00DA1978 /* UILabel+.swift in Sources */,
 				89CA33FE2A7CDED900DA1978 /* CharacterDetailPopUpViewController.swift in Sources */,
 				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,

@@ -9,9 +9,9 @@ import Foundation
 
 struct Tamagotchi {
     var type: TamagotchiType
-    var level: Int
-    var rice: Int
-    var water: Int
+    var level: Int = 1
+    var rice: Int = 0
+    var water: Int = 0
 }
 
 extension Tamagotchi {

@@ -48,6 +48,9 @@ final class CharacterDetailPopUpViewController: UIViewController {
         ) as? MainViewController
         else { return }
 
+        guard let tamagotchiType else { return }
+        viewController.configureData(with: Tamagotchi(type: tamagotchiType))
+
         let nav = UINavigationController(rootViewController: viewController)
 
         sceneDelegate?.window?.rootViewController = nav
@@ -71,8 +74,6 @@ extension CharacterDetailPopUpViewController {
 private extension CharacterDetailPopUpViewController {
 
     func configureUI() {
-
-        // TODO: - UI 리팩토링
 
         imageView.image = .init(named: tamagotchiType?.thumbnailImage ?? "noImage")
         imageView.contentMode = .scaleAspectFill

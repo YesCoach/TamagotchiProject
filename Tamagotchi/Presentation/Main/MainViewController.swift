@@ -25,25 +25,47 @@ final class MainViewController: UIViewController {
 
     private var tamagotchi: Tamagotchi?
 
+    // MARK: - View LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tamagotchi = Tamagotchi(type: .ddakkeum, level: 1, rice: 1, water: 1)
         configureUI()
     }
 
-    @IBAction func didRiceButtonTouched(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tamagotchi = UserDefaultsManager.currentTamagotchi
+    }
 
+    // MARK: - Action
+
+    @IBAction func didRiceButtonTouched(_ sender: UIButton) {
+        feedRice()
     }
 
     @IBAction func didWaterButtonTouched(_ sender: UIButton) {
-
+        feedWater()
     }
 
 }
 
+// MARK: - Method
+
+extension MainViewController {
+
+    func configureData(with tamagotchi: Tamagotchi) {
+        self.tamagotchi = tamagotchi
+    }
+
+}
+
+// MARK: - Private Method
+
 private extension MainViewController {
 
     func configureUI() {
+        configureButton()
+
         guard let tamagotchi else { return }
         bubbleLabel.text = ""
         bubbleLabel.numberOfLines = 0
@@ -51,6 +73,8 @@ private extension MainViewController {
 
         tamagotchiImageView.image = .init(named: tamagotchi.imageName)
         tamagotchiImageView.contentMode = .scaleAspectFill
+
+        // TODO: - nameLabel Button 이슈 해결하기
 
         nameButton.setupNameButton(tamagotchi.type.name)
 
@@ -60,11 +84,12 @@ private extension MainViewController {
         riceTextField.setupBottomBorder()
         riceTextField.placeholder = "밥주세용"
         riceTextField.textAlignment = .center
+        riceTextField.keyboardType = .numberPad
+
         waterTextField.setupBottomBorder()
         waterTextField.placeholder = "물주세용"
         waterTextField.textAlignment = .center
-
-        configureButton()
+        waterTextField.keyboardType = .numberPad
     }
 
     func configureButton() {
@@ -77,4 +102,25 @@ private extension MainViewController {
         config.title = "물먹기"
         waterButton.configuration = config
     }
+
+    func feedRice() {
+        if let count = Int(riceTextField.text!), count < 100 {
+            tamagotchi?.rice += count
+            UserDefaultsManager.currentRice += count
+        } else {
+            tamagotchi?.rice += 1
+            UserDefaultsManager.currentRice += 1
+        }
+    }
+
+    func feedWater() {
+        if let count = Int(waterTextField.text!), count < 100 {
+            tamagotchi?.water += count
+            UserDefaultsManager.currentWater += count
+        } else {
+            tamagotchi?.water += 1
+            UserDefaultsManager.currentWater += 1
+        }
+    }
+
 }
