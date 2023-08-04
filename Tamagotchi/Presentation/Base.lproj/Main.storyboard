@@ -193,8 +193,8 @@
                             <constraint firstItem="AmC-3x-Z2V" firstAttribute="top" secondItem="QkH-iW-eFb" secondAttribute="top" id="v4w-ZZ-f8N"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QT6-kN-2aQ">
-                        <barButtonItem key="rightBarButtonItem" id="zTt-UG-u5k"/>
+                    <navigationItem key="navigationItem" id="AkZ-FV-aIx">
+                        <barButtonItem key="rightBarButtonItem" id="Uqq-eE-PS6"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bubbleImageView" destination="gb6-6W-Xby" id="eeN-m7-jsM"/>
@@ -202,6 +202,7 @@
                         <outlet property="nameButton" destination="46b-og-tik" id="6b3-LB-kUi"/>
                         <outlet property="riceButton" destination="gfl-of-bqb" id="zW4-ed-WgO"/>
                         <outlet property="riceTextField" destination="Fbx-Bx-gzh" id="vhc-oa-Fzl"/>
+                        <outlet property="settingBarButtonItem" destination="Uqq-eE-PS6" id="7l2-U3-pvx"/>
                         <outlet property="statusLabel" destination="Eb9-Ew-VUy" id="3vj-Yt-2hQ"/>
                         <outlet property="tamagotchiImageView" destination="9IF-qf-l0T" id="ISm-pK-QsF"/>
                         <outlet property="waterButton" destination="mj6-l4-7Lp" id="tsl-JO-SBN"/>
@@ -215,7 +216,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1991.6030534351144" y="818.30985915492965"/>
+            <point key="canvasLocation" x="2918.320610687023" y="818.30985915492965"/>
         </scene>
         <!--Character Detail Pop Up View Controller-->
         <scene sceneID="BIt-W0-nuJ">
@@ -349,22 +350,22 @@
             <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="FF6-mv-Rjb">
+        <scene sceneID="EMh-k8-xgF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tb7-kI-BjU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gWu-fD-3lZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZbO-Ee-MTM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x7A-oy-E2S">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LeY-Hd-ub7" kind="relationship" relationship="rootViewController" id="VDF-8m-o10"/>
+                        <segue destination="LeY-Hd-ub7" kind="relationship" relationship="rootViewController" id="93R-sn-Mwf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iL7-po-2zv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbc-6B-QwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.885496183206" y="818.30985915492965"/>
+            <point key="canvasLocation" x="1991.6030534351144" y="818.30985915492965"/>
         </scene>
     </scenes>
     <resources>

@@ -22,6 +22,7 @@ final class MainViewController: UIViewController {
     @IBOutlet var waterTextField: UITextField!
     @IBOutlet var riceButton: UIButton!
     @IBOutlet var waterButton: UIButton!
+    @IBOutlet var settingBarButtonItem: UIBarButtonItem!
 
     private var tamagotchi: Tamagotchi {
         didSet {
@@ -84,6 +85,7 @@ private extension MainViewController {
 
     func configureUI() {
         configureButton()
+        configureNavigationItem()
 
         bubbleLabel.text = ""
         bubbleLabel.numberOfLines = 0
@@ -92,8 +94,7 @@ private extension MainViewController {
         tamagotchiImageView.image = .init(named: tamagotchi.imageName)
         tamagotchiImageView.contentMode = .scaleAspectFill
 
-        // TODO: - nameLabel Button 이슈 해결하기
-
+        // TODO: nameLabel Button 이슈 해결하기
         nameButton.setupNameButton(tamagotchi.type.name)
 
         statusLabel.text = tamagotchi.info
@@ -119,6 +120,19 @@ private extension MainViewController {
         config.image = .init(systemName: "leaf.circle")
         config.title = "물먹기"
         waterButton.configuration = config
+    }
+
+    func configureNavigationItem() {
+
+        // TODO: 유저 닉네임으로 타이틀 구성하기
+
+        let label = UILabel()
+        label.text = "대장님의 다마고치"
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.textColor = .border
+        navigationItem.titleView = label
+        settingBarButtonItem.image = .init(systemName: "person.circle")
+        settingBarButtonItem.tintColor = .border
     }
 
     func feedRice() {
