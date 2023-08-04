@@ -16,9 +16,36 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="262" height="252"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-Ac-YA9">
+                        <rect key="frame" x="29.666666666666657" y="16" width="203" height="203"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2H7-Ac-YA9" secondAttribute="height" multiplier="1:1" id="nrN-RN-pAA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU6-Ys-Li0">
+                        <rect key="frame" x="110.33333333333333" y="223" width="41.333333333333329" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="2H7-Ac-YA9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="7zT-iQ-tBo"/>
+                <constraint firstItem="2H7-Ac-YA9" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="JAT-tz-52g"/>
+                <constraint firstItem="GU6-Ys-Li0" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Mh4-EL-XKS"/>
+                <constraint firstItem="GU6-Ys-Li0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Nhk-Xq-tgX"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GU6-Ys-Li0" secondAttribute="trailing" constant="8" id="TZl-co-JZU"/>
+                <constraint firstAttribute="bottom" secondItem="GU6-Ys-Li0" secondAttribute="bottom" constant="8" id="Xjz-qT-6UV"/>
+                <constraint firstItem="GU6-Ys-Li0" firstAttribute="top" secondItem="2H7-Ac-YA9" secondAttribute="bottom" constant="4" id="vG2-Se-Ai5"/>
+            </constraints>
             <size key="customSize" width="262" height="252"/>
+            <connections>
+                <outlet property="imageView" destination="2H7-Ac-YA9" id="A5b-zt-POz"/>
+                <outlet property="nameLabel" destination="GU6-Ys-Li0" id="KX0-HL-NaW"/>
+            </connections>
             <point key="canvasLocation" x="300.76335877862596" y="91.549295774647888"/>
         </collectionViewCell>
     </objects>
