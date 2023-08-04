@@ -37,8 +37,23 @@ final class CharacterDetailPopUpViewController: UIViewController {
     }
 
     @IBAction func didOkButtonTouched(_ sender: UIButton) {
-        // TODO: - 시작화면으로 전환
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+
+        guard let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        ).instantiateViewController(
+            identifier: MainViewController.identifier
+        ) as? MainViewController
+        else { return }
+
+        let nav = UINavigationController(rootViewController: viewController)
+
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
+
 }
 
 // MARK: - Method
@@ -56,6 +71,9 @@ extension CharacterDetailPopUpViewController {
 private extension CharacterDetailPopUpViewController {
 
     func configureUI() {
+
+        // TODO: - UI 리팩토링
+
         imageView.layer.cornerRadius = 45.0
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 2.0

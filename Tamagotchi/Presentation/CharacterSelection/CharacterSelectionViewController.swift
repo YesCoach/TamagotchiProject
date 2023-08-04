@@ -68,7 +68,7 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
     ) {
         guard let type = TamagotchiType(rawValue: indexPath.row)
         else {
-            // 준비중이에요 얼럿 처리
+            // TODO: - 준비중이에요 얼럿 처리
             return
         }
         guard let viewController = UIStoryboard(
