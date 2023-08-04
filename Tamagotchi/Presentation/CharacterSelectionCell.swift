@@ -14,7 +14,7 @@ class CharacterSelectionCell: UICollectionViewCell {
     // MARK: - UI Components
 
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var nameButton: UIButton!
 
     // MARK: - Initializer
 
@@ -37,15 +37,23 @@ extension CharacterSelectionCell {
 private extension CharacterSelectionCell {
 
     func configureUI() {
-        imageView.layer.cornerRadius = 30.0
+        imageView.layer.cornerRadius = 45.0
         imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 1.0
+        imageView.layer.borderWidth = 2.0
 
-        nameLabel.layer.cornerRadius = 10.0
-        nameLabel.layer.borderColor = UIColor.lightGray.cgColor
-        nameLabel.layer.borderWidth = 1.0
-        nameLabel.font = .systemFont(ofSize: 14.0, weight: .bold)
-        nameLabel.textColor = .gray
+        nameButton.layer.cornerRadius = 5.0
+        nameButton.layer.borderColor = UIColor.border.cgColor
+        nameButton.layer.borderWidth = 0.5
+        nameButton.setTitleColor(.border, for: .normal)
+        nameButton.titleLabel?.font = .systemFont(ofSize: 13.0, weight: .bold)
+        nameButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        nameButton.titleLabel?.numberOfLines = 1
+
+        // TODO: - deprecated 메서드 보완하기
+
+        nameButton.titleEdgeInsets = .init(top: 4, left: 4, bottom: 4, right: 4)
+
+        nameButton.setTitle("따끔따끔 다마고치", for: .normal)
     }
 
 }

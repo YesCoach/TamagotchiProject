@@ -15,6 +15,7 @@
 		89CA33E52A7C9CEF00DA1978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */; };
 		89CA33F02A7CAA7F00DA1978 /* CharacterSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33EE2A7CAA7F00DA1978 /* CharacterSelectionCell.swift */; };
 		89CA33F12A7CAA7F00DA1978 /* CharacterSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CA33EF2A7CAA7F00DA1978 /* CharacterSelectionCell.xib */; };
+		89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33F52A7CCBB300DA1978 /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		89CA33E62A7C9CEF00DA1978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89CA33EE2A7CAA7F00DA1978 /* CharacterSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionCell.swift; sourceTree = "<group>"; };
 		89CA33EF2A7CAA7F00DA1978 /* CharacterSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionCell.xib; sourceTree = "<group>"; };
+		89CA33F52A7CCBB300DA1978 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				89CA33EC2A7CA87C00DA1978 /* Application */,
 				89CA33ED2A7CA88C00DA1978 /* Presentation */,
+				89CA33F42A7CCB3D00DA1978 /* Extension */,
 				89CA33DE2A7C9CED00DA1978 /* Main.storyboard */,
 				89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */,
 				89CA33E12A7C9CEF00DA1978 /* Assets.xcassets */,
@@ -87,6 +90,14 @@
 				89CA33EF2A7CAA7F00DA1978 /* CharacterSelectionCell.xib */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		89CA33F42A7CCB3D00DA1978 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				89CA33F52A7CCBB300DA1978 /* UIColor+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */,
 				89CA33F02A7CAA7F00DA1978 /* CharacterSelectionCell.swift in Sources */,
 				89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */,
+				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
