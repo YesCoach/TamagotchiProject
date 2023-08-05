@@ -13,6 +13,7 @@ enum UserDefaultsKey: String {
     case riceKey
     case waterKey
     case nicknameKey
+    case isLaunchedKey
 }
 
 final class UserDefaultsManager {
@@ -56,6 +57,10 @@ final class UserDefaultsManager {
     /// 현재 유저의 닉네임입니다. default는 "대장" 입니다.
     static var currentNickname: String
 
+    @UserDefault(key: UserDefaultsKey.isLaunchedKey.rawValue, defaultValue: false)
+    /// 최초 앱 실행 여부 값입니다. false일 경우 앱의 첫 화면으로 이동합니다.
+    static var isLaunched: Bool
+
     /// UserDefaults에 저장된 유저 데이터를 리셋합니다.
     static func resetUserData() {
         currentType = 0
@@ -63,5 +68,6 @@ final class UserDefaultsManager {
         currentRice = 0
         currentWater = 0
         currentNickname = "대장"
+        isLaunched = false
     }
 }

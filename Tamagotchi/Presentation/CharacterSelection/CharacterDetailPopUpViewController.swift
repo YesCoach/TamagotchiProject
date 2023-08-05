@@ -59,6 +59,7 @@ final class CharacterDetailPopUpViewController: UIViewController {
             }
         )
 
+        UserDefaultsManager.isLaunched = true
         let nav = UINavigationController(rootViewController: viewController)
 
         sceneDelegate?.window?.rootViewController = nav
