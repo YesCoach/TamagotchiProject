@@ -52,6 +52,7 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureRandomBubbleLabel()
+        configureNavigationItem()
     }
 
     // MARK: - Actions
@@ -89,7 +90,6 @@ private extension MainViewController {
 
     func configureUI() {
         configureButton()
-        configureNavigationItem()
 
         bubbleLabel.text = ""
         bubbleLabel.numberOfLines = 0

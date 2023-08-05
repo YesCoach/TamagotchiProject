@@ -24,11 +24,17 @@ final class SettingViewController: UIViewController {
         configureUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     // MARK: - Actions
 
     @IBAction func didDismissButtonTouched() {
         navigationController?.popViewController(animated: true)
     }
+
 }
 
 // MARK: - Private Methods
