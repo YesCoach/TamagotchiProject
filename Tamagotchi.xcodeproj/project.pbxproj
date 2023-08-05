@@ -28,6 +28,7 @@
 		89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */; };
 		89CA34132A7DE0E400DA1978 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CA34122A7DE0E400DA1978 /* Setting.storyboard */; };
 		89CA34152A7DE14F00DA1978 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34142A7DE14F00DA1978 /* SettingViewController.swift */; };
+		89CA34182A7E506100DA1978 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34172A7E506100DA1978 /* SettingType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		89CA34122A7DE0E400DA1978 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		89CA34142A7DE14F00DA1978 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		89CA34172A7E506100DA1978 /* SettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				89CA33F92A7CD5EA00DA1978 /* Tamagotchi.swift */,
 				89CA33FB2A7CD83C00DA1978 /* TamagotchiType.swift */,
+				89CA34172A7E506100DA1978 /* SettingType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */,
 				89CA34052A7CE69B00DA1978 /* UILabel+.swift in Sources */,
 				89CA33FE2A7CDED900DA1978 /* CharacterDetailPopUpViewController.swift in Sources */,
+				89CA34182A7E506100DA1978 /* SettingType.swift in Sources */,
 				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

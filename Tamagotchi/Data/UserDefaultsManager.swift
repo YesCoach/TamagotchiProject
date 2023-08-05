@@ -12,6 +12,7 @@ enum UserDefaultsKey: String {
     case levelKey
     case riceKey
     case waterKey
+    case nicknameKey
 }
 
 final class UserDefaultsManager {
@@ -43,4 +44,7 @@ final class UserDefaultsManager {
 
     @UserDefault(key: UserDefaultsKey.waterKey.rawValue, defaultValue: 0)
     static var currentWater: Int
+
+    @UserDefault(key: UserDefaultsKey.nicknameKey.rawValue, defaultValue: "")
+    static var currentNickname: String
 }
