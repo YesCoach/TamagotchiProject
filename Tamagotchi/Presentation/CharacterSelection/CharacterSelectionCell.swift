@@ -36,8 +36,11 @@ class CharacterSelectionCell: UICollectionViewCell {
 extension CharacterSelectionCell {
 
     func configure(with type: TamagotchiType) {
+        contentView.backgroundColor = .background
+
         imageView.image = UIImage(named: type.thumbnailImage)
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.backgroundColor = UIColor.background.cgColor
         nameButton.setTitle(type.name, for: .normal)
     }
 

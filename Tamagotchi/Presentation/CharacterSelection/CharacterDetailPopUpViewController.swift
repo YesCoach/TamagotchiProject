@@ -98,7 +98,7 @@ private extension CharacterDetailPopUpViewController {
         infoLabel.textAlignment = .center
 
         cancelButton.setTitle("취소", for: .normal)
-        cancelButton.backgroundColor = .background
+        cancelButton.backgroundColor = .cancleButton
         cancelButton.setTitleColor(.border, for: .normal)
 
         okButton.setTitle(characterSelectionStatus == .initial ? "시작하기" : "변경하기", for: .normal)
@@ -109,5 +109,6 @@ private extension CharacterDetailPopUpViewController {
 
         popUpview.layer.cornerRadius = 10.0
         popUpview.clipsToBounds = true
+        popUpview.backgroundColor = .background
     }
 }

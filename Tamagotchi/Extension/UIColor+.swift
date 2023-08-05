@@ -18,4 +18,8 @@ extension UIColor {
     static var border: UIColor {
         return UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
     }
+
+    static var cancleButton: UIColor {
+        return UIColor(red: 233/255, green: 237/255, blue: 239/255, alpha: 1)
+    }
 }

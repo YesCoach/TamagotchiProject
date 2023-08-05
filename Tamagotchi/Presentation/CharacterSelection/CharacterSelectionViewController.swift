@@ -56,10 +56,14 @@ private extension CharacterSelectionViewController {
     func configureUI() {
         configureNavigationItem()
         configureCollectionView()
+        configureStatusBarColor(with: .background)
+        collectionView.backgroundColor = .background
     }
 
     func configureNavigationItem() {
         navigationItem.title = (status == .change ? "다마고치 변경하기" : "다마고치 선택하기")
+        navigationController?.navigationBar.barTintColor = .background
+        navigationController?.navigationBar.backgroundColor = .background
     }
 
     func configureCollectionView() {

@@ -45,14 +45,17 @@ private extension SettingViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.backgroundColor = .background
+        view.backgroundColor = .background
 
         configureNavigationItem()
+        configureStatusBarColor(with: .background)
     }
 
     func configureNavigationItem() {
         navigationItem.title = "설정"
         dismissButton.image = .init(systemName: "chevron.left")
-        dismissButton.tintColor = .border
+        navigationController?.navigationBar.backgroundColor = .background
     }
 
 }
@@ -81,9 +84,11 @@ extension SettingViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         cell.tintColor = .border
         cell.detailTextLabel?.text = (type == .nameChange) ? UserDefaultsManager.currentNickname : nil
+        cell.backgroundColor = .background
 
         return cell
     }
+
 }
 
 extension SettingViewController: UITableViewDelegate {
@@ -135,7 +140,6 @@ extension SettingViewController: UITableViewDelegate {
 
                 sceneDelegate?.window?.rootViewController = nav
                 sceneDelegate?.window?.makeKeyAndVisible()
-
             }
 
             [
@@ -147,4 +151,5 @@ extension SettingViewController: UITableViewDelegate {
             present(alertController, animated: true)
         }
     }
+
 }

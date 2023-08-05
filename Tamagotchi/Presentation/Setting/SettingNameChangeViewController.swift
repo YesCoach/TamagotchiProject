@@ -57,6 +57,8 @@ extension SettingNameChangeViewController {
     func configureUI() {
         configureNavigationItem()
 
+        view.backgroundColor = .background
+
         nickNameTextField.setupBottomBorder()
         nickNameTextField.placeholder = "\(UserDefaultsManager.currentNickname)님 이름을 알려주세요!"
     }

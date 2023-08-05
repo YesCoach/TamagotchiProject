@@ -13,6 +13,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - UI Components
 
+    @IBOutlet var contentView: UIView!
     @IBOutlet var bubbleImageView: UIImageView!
     @IBOutlet var bubbleLabel: UILabel!
     @IBOutlet var tamagotchiImageView: UIImageView!
@@ -47,6 +48,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavigationBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -91,9 +93,12 @@ private extension MainViewController {
     func configureUI() {
         configureButton()
 
+        view.backgroundColor = .background
+        contentView.backgroundColor = .background
+
         bubbleLabel.text = ""
         bubbleLabel.numberOfLines = 0
-        bubbleLabel.setupTextStyleBody()
+        bubbleLabel.setupTextStyleSubTitle()
 
         tamagotchiImageView.image = .init(named: tamagotchi.imageName)
         tamagotchiImageView.contentMode = .scaleAspectFill
@@ -126,13 +131,16 @@ private extension MainViewController {
     }
 
     func configureNavigationItem() {
-        let label = UILabel()
-        label.text = "\(UserDefaultsManager.currentNickname)님의 다마고치"
-        label.font = .systemFont(ofSize: 15, weight: .bold)
-        label.textColor = .border
-        navigationItem.titleView = label
+        navigationItem.title = "\(UserDefaultsManager.currentNickname)님의 다마고치"
         settingBarButtonItem.image = .init(systemName: "person.circle")
-        settingBarButtonItem.tintColor = .border
+    }
+
+    func configureNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.border
+        ]
+        navigationController?.navigationBar.tintColor = .border
+        navigationController?.navigationBar.barTintColor = .background
     }
 
     func configureRandomBubbleLabel() {

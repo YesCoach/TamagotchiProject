@@ -79,7 +79,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoa-Pv-PD0">
-                                                <rect key="frame" x="86.666666666666686" y="50" width="220" height="110"/>
+                                                <rect key="frame" x="106.66666666666669" y="60" width="180" height="90"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbx-Bx-gzh">
-                                                <rect key="frame" x="60" y="495" width="177" height="35"/>
+                                                <rect key="frame" x="80" y="495" width="157" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -130,7 +130,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XGi-wo-jhj">
-                                                <rect key="frame" x="60" y="546" width="177" height="35"/>
+                                                <rect key="frame" x="80" y="546" width="157" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -145,15 +145,15 @@
                                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="trailing" secondItem="gfl-of-bqb" secondAttribute="trailing" id="Bu7-hT-1PU"/>
                                             <constraint firstItem="9IF-qf-l0T" firstAttribute="centerX" secondItem="gb6-6W-Xby" secondAttribute="centerX" id="CRQ-UX-xPb"/>
                                             <constraint firstAttribute="bottom" secondItem="XGi-wo-jhj" secondAttribute="bottom" constant="40" id="DZs-jP-aBO"/>
-                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="top" secondItem="gb6-6W-Xby" secondAttribute="top" constant="10" id="FV9-QP-Xmp"/>
-                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="leading" secondItem="gb6-6W-Xby" secondAttribute="leading" id="I17-xK-s2b"/>
+                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="top" secondItem="gb6-6W-Xby" secondAttribute="top" constant="20" id="FV9-QP-Xmp"/>
+                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="leading" secondItem="gb6-6W-Xby" secondAttribute="leading" constant="20" id="I17-xK-s2b"/>
                                             <constraint firstItem="XGi-wo-jhj" firstAttribute="leading" secondItem="Fbx-Bx-gzh" secondAttribute="leading" id="Kvd-R2-zdG"/>
                                             <constraint firstItem="gb6-6W-Xby" firstAttribute="top" secondItem="9MK-vM-KXQ" secondAttribute="top" constant="40" id="MWs-RB-iYb"/>
-                                            <constraint firstItem="Fbx-Bx-gzh" firstAttribute="leading" secondItem="9MK-vM-KXQ" secondAttribute="leading" constant="60" id="MXh-ZC-CKL"/>
+                                            <constraint firstItem="Fbx-Bx-gzh" firstAttribute="leading" secondItem="9MK-vM-KXQ" secondAttribute="leading" constant="80" id="MXh-ZC-CKL"/>
                                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="width" secondItem="gfl-of-bqb" secondAttribute="width" id="PBE-7T-fJR"/>
                                             <constraint firstItem="gfl-of-bqb" firstAttribute="top" secondItem="Fbx-Bx-gzh" secondAttribute="top" id="Stb-xH-VP6"/>
                                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="height" secondItem="gfl-of-bqb" secondAttribute="height" id="UWU-Yi-3Ci"/>
-                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="trailing" secondItem="gb6-6W-Xby" secondAttribute="trailing" id="XuH-Dt-g9D"/>
+                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="trailing" secondItem="gb6-6W-Xby" secondAttribute="trailing" constant="-20" id="XuH-Dt-g9D"/>
                                             <constraint firstItem="mj6-l4-7Lp" firstAttribute="leading" secondItem="gfl-of-bqb" secondAttribute="leading" id="c1M-se-MI6"/>
                                             <constraint firstAttribute="trailing" secondItem="gfl-of-bqb" secondAttribute="trailing" constant="60" id="hmH-kG-Joe"/>
                                             <constraint firstItem="9IF-qf-l0T" firstAttribute="top" secondItem="gb6-6W-Xby" secondAttribute="bottom" constant="4" id="jsc-gv-Yz7"/>
@@ -161,7 +161,7 @@
                                             <constraint firstItem="Eb9-Ew-VUy" firstAttribute="top" secondItem="46b-og-tik" secondAttribute="bottom" constant="16" id="nDL-Cn-Bbi"/>
                                             <constraint firstItem="Fbx-Bx-gzh" firstAttribute="top" secondItem="Eb9-Ew-VUy" secondAttribute="bottom" constant="24" id="oUz-Vu-Idn"/>
                                             <constraint firstItem="gb6-6W-Xby" firstAttribute="centerX" secondItem="9MK-vM-KXQ" secondAttribute="centerX" id="qNH-r8-9RU"/>
-                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="bottom" secondItem="gb6-6W-Xby" secondAttribute="bottom" constant="-20" id="t4N-TI-Yqd"/>
+                                            <constraint firstItem="Yoa-Pv-PD0" firstAttribute="bottom" secondItem="gb6-6W-Xby" secondAttribute="bottom" constant="-30" id="t4N-TI-Yqd"/>
                                             <constraint firstItem="XGi-wo-jhj" firstAttribute="height" secondItem="Fbx-Bx-gzh" secondAttribute="height" id="uAf-JW-qDm"/>
                                             <constraint firstItem="XGi-wo-jhj" firstAttribute="top" secondItem="Fbx-Bx-gzh" secondAttribute="bottom" constant="16" id="umR-jL-vwp"/>
                                             <constraint firstItem="XGi-wo-jhj" firstAttribute="width" secondItem="Fbx-Bx-gzh" secondAttribute="width" id="vby-XZ-qIG"/>
@@ -203,6 +203,7 @@
                     <connections>
                         <outlet property="bubbleImageView" destination="gb6-6W-Xby" id="eeN-m7-jsM"/>
                         <outlet property="bubbleLabel" destination="Yoa-Pv-PD0" id="yKs-pt-H0j"/>
+                        <outlet property="contentView" destination="9MK-vM-KXQ" id="mkD-K5-Rvf"/>
                         <outlet property="nameButton" destination="46b-og-tik" id="6b3-LB-kUi"/>
                         <outlet property="riceButton" destination="gfl-of-bqb" id="zW4-ed-WgO"/>
                         <outlet property="riceTextField" destination="Fbx-Bx-gzh" id="vhc-oa-Fzl"/>
