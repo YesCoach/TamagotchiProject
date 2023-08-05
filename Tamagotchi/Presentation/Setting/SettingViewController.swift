@@ -31,6 +31,8 @@ final class SettingViewController: UIViewController {
     }
 }
 
+// MARK: - Private Methods
+
 private extension SettingViewController {
 
     func configureUI() {
@@ -79,6 +81,7 @@ extension SettingViewController: UITableViewDataSource {
 }
 
 extension SettingViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = SettingType(rawValue: indexPath.row) else { return }
         switch type {
@@ -100,10 +103,42 @@ extension SettingViewController: UITableViewDelegate {
             else { return }
 
             viewController.configure(with: .change)
-
             navigationController?.pushViewController(viewController, animated: true)
 
-        default: return
+        case .dataReset:
+            let alertController = UIAlertController(
+                title: "데이터 초기화",
+                message: "정말 다시 처음부터 시작하실 건가용?",
+                preferredStyle: .alert
+            )
+            let nopeAction = UIAlertAction(title: "아냐!", style: .default)
+            let confirmAction = UIAlertAction(title: "웅", style: .default) { _ in
+                UserDefaultsManager.resetUserData()
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+
+                guard let viewController = UIStoryboard(
+                    name: "Main",
+                    bundle: nil
+                ).instantiateViewController(
+                    withIdentifier: CharacterSelectionViewController.identifier
+                ) as? CharacterSelectionViewController
+                else { return }
+
+                let nav = UINavigationController(rootViewController: viewController)
+
+                sceneDelegate?.window?.rootViewController = nav
+                sceneDelegate?.window?.makeKeyAndVisible()
+
+            }
+
+            [
+                nopeAction, confirmAction
+            ].forEach {
+                alertController.addAction($0)
+            }
+
+            present(alertController, animated: true)
         }
     }
 }
