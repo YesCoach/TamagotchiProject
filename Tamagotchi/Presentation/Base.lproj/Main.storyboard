@@ -194,7 +194,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AkZ-FV-aIx">
-                        <barButtonItem key="rightBarButtonItem" id="Uqq-eE-PS6"/>
+                        <barButtonItem key="rightBarButtonItem" id="Uqq-eE-PS6">
+                            <connections>
+                                <action selector="didSettingButtonTouched:" destination="LeY-Hd-ub7" id="VNa-FA-Cme"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bubbleImageView" destination="gb6-6W-Xby" id="eeN-m7-jsM"/>
@@ -216,7 +220,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2918.320610687023" y="818.30985915492965"/>
+            <point key="canvasLocation" x="2030" y="818"/>
         </scene>
         <!--Character Detail Pop Up View Controller-->
         <scene sceneID="BIt-W0-nuJ">
@@ -365,7 +369,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbc-6B-QwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991.6030534351144" y="818.30985915492965"/>
+            <point key="canvasLocation" x="1066" y="818"/>
         </scene>
     </scenes>
     <resources>

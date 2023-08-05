@@ -67,6 +67,18 @@ final class MainViewController: UIViewController {
     @IBAction func didBackgroudViewTouched(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+
+    @IBAction func didSettingButtonTouched(_ sender: UIBarButtonItem) {
+        guard let viewController = UIStoryboard(
+            name: "Setting",
+            bundle: nil
+        ).instantiateViewController(
+            withIdentifier: SettingViewController.identifier
+        ) as? SettingViewController
+        else { return }
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - Method

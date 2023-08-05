@@ -26,6 +26,8 @@
 		89CA340C2A7D1D6100DA1978 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA340B2A7D1D6100DA1978 /* UITextField+.swift */; };
 		89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */; };
 		89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */; };
+		89CA34132A7DE0E400DA1978 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CA34122A7DE0E400DA1978 /* Setting.storyboard */; };
+		89CA34152A7DE14F00DA1978 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34142A7DE14F00DA1978 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		89CA340B2A7D1D6100DA1978 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		89CA34122A7DE0E400DA1978 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		89CA34142A7DE14F00DA1978 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				89CA33DE2A7C9CED00DA1978 /* Main.storyboard */,
+				89CA34122A7DE0E400DA1978 /* Setting.storyboard */,
+				89CA34162A7DE15300DA1978 /* Setting */,
 				89CA34082A7D005500DA1978 /* Main */,
 				89CA33FF2A7CDEF000DA1978 /* CharacterSelection */,
 			);
@@ -170,6 +176,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		89CA34162A7DE15300DA1978 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				89CA34142A7DE14F00DA1978 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +244,7 @@
 			files = (
 				89CA33E52A7C9CEF00DA1978 /* LaunchScreen.storyboard in Resources */,
 				89CA33E22A7C9CEF00DA1978 /* Assets.xcassets in Resources */,
+				89CA34132A7DE0E400DA1978 /* Setting.storyboard in Resources */,
 				89CA33F12A7CAA7F00DA1978 /* CharacterSelectionCell.xib in Resources */,
 				89CA33E02A7C9CED00DA1978 /* Main.storyboard in Resources */,
 			);
@@ -245,6 +260,7 @@
 				89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */,
 				89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */,
 				89CA340C2A7D1D6100DA1978 /* UITextField+.swift in Sources */,
+				89CA34152A7DE14F00DA1978 /* SettingViewController.swift in Sources */,
 				89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */,
 				89CA33FC2A7CD83C00DA1978 /* TamagotchiType.swift in Sources */,
 				89CA33F02A7CAA7F00DA1978 /* CharacterSelectionCell.swift in Sources */,
