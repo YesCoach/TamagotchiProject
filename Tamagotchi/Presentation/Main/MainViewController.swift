@@ -49,14 +49,21 @@ final class MainViewController: UIViewController {
         configureUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureRandomBubbleLabel()
+    }
+
     // MARK: - Actions
 
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
         feedRice()
+        configureRandomBubbleLabel()
     }
 
     @IBAction func didWaterButtonTouched(_ sender: UIButton) {
         feedWater()
+        configureRandomBubbleLabel()
     }
 
     @IBAction func didBackgroudViewTouched(_ sender: UITapGestureRecognizer) {
@@ -126,6 +133,10 @@ private extension MainViewController {
         navigationItem.titleView = label
         settingBarButtonItem.image = .init(systemName: "person.circle")
         settingBarButtonItem.tintColor = .border
+    }
+
+    func configureRandomBubbleLabel() {
+        bubbleLabel.text = TamagotchiStory.randomStory()
     }
 
     func feedRice() {
