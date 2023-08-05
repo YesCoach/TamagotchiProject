@@ -49,11 +49,6 @@ final class MainViewController: UIViewController {
         configureUI()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tamagotchi = UserDefaultsManager.currentTamagotchi
-    }
-
     // MARK: - Actions
 
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
@@ -81,16 +76,6 @@ final class MainViewController: UIViewController {
     }
 }
 
-// MARK: - Method
-
-extension MainViewController {
-
-    func configureData(with tamagotchi: Tamagotchi) {
-        self.tamagotchi = tamagotchi
-    }
-
-}
-
 // MARK: - Private Method
 
 private extension MainViewController {
@@ -106,7 +91,6 @@ private extension MainViewController {
         tamagotchiImageView.image = .init(named: tamagotchi.imageName)
         tamagotchiImageView.contentMode = .scaleAspectFill
 
-        // TODO: nameLabel Button 이슈 해결하기
         nameButton.setupNameButton(tamagotchi.type.name)
 
         statusLabel.text = tamagotchi.info
@@ -135,11 +119,8 @@ private extension MainViewController {
     }
 
     func configureNavigationItem() {
-
-        // TODO: 유저 닉네임으로 타이틀 구성하기
-
         let label = UILabel()
-        label.text = "대장님의 다마고치"
+        label.text = "\(UserDefaultsManager.currentNickname)님의 다마고치"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         label.textColor = .border
         navigationItem.titleView = label

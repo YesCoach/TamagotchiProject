@@ -24,6 +24,7 @@ final class CharacterDetailPopUpViewController: UIViewController {
     @IBOutlet var okButton: UIButton!
 
     private var tamagotchiType: TamagotchiType?
+    private var characterSelectionStatus: CharacterSelectionStatus?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,8 @@ final class CharacterDetailPopUpViewController: UIViewController {
 
         guard let tamagotchiType else { return }
 
+        UserDefaultsManager.currentType = tamagotchiType.rawValue
+
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
@@ -49,7 +52,7 @@ final class CharacterDetailPopUpViewController: UIViewController {
             identifier: MainViewController.identifier,
             creator: { coder in
                 let viewController = MainViewController(
-                    tamagotchi: .init(type: tamagotchiType),
+                    tamagotchi: UserDefaultsManager.currentTamagotchi,
                     coder: coder
                 )
                 return viewController
@@ -68,8 +71,9 @@ final class CharacterDetailPopUpViewController: UIViewController {
 
 extension CharacterDetailPopUpViewController {
 
-    func configure(with type: TamagotchiType) {
+    func configure(with type: TamagotchiType, status: CharacterSelectionStatus) {
         self.tamagotchiType = type
+        self.characterSelectionStatus = status
     }
 
 }
@@ -97,7 +101,7 @@ private extension CharacterDetailPopUpViewController {
         cancelButton.backgroundColor = .background
         cancelButton.setTitleColor(.border, for: .normal)
 
-        okButton.setTitle("시작하기", for: .normal)
+        okButton.setTitle(characterSelectionStatus == .initial ? "시작하기" : "변경하기", for: .normal)
         okButton.backgroundColor = .background
         okButton.setTitleColor(.border, for: .normal)
 

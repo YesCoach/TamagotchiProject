@@ -87,6 +87,20 @@ extension SettingViewController: UITableViewDelegate {
                 withIdentifier: SettingNameChangeViewController.identifier
             ) as? SettingNameChangeViewController
             else { return }
+
+            navigationController?.pushViewController(viewController, animated: true)
+
+        case .tamagotchiChange:
+            guard let viewController = UIStoryboard(
+                name: "Main",
+                bundle: nil
+            ).instantiateViewController(
+                withIdentifier: CharacterSelectionViewController.identifier
+            ) as? CharacterSelectionViewController
+            else { return }
+
+            viewController.configure(with: .change)
+
             navigationController?.pushViewController(viewController, animated: true)
 
         default: return

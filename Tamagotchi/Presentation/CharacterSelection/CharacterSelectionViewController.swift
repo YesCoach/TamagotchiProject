@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum CharacterSelectionStatus {
+    case initial
+    case change
+}
+
+
 final class CharacterSelectionViewController: UIViewController {
 
     static let identifier = "CharacterSelectionViewController"
@@ -18,6 +24,8 @@ final class CharacterSelectionViewController: UIViewController {
     // MARK: - Properties
     private let data = TamagotchiType.allCases
 
+    var status: CharacterSelectionStatus = .initial
+
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -28,7 +36,58 @@ final class CharacterSelectionViewController: UIViewController {
 
 }
 
-// MARK: - DataSource
+// MARK: - Methods
+
+extension CharacterSelectionViewController {
+
+
+    /// 다마고치 선택 화면의 종류를 설정합니다.
+    /// - Parameter status: .initial: 시작하기, .change: 변경하기
+    func configure(with status: CharacterSelectionStatus) {
+        self.status = status
+    }
+
+}
+
+// MARK: - Private Method
+
+private extension CharacterSelectionViewController {
+
+    func configureUI() {
+        configureNavigationItem()
+        configureCollectionView()
+    }
+
+    func configureNavigationItem() {
+        navigationItem.title = (status == .change ? "다마고치 변경하기" : "다마고치 선택하기")
+    }
+
+    func configureCollectionView() {
+        let nib = UINib(nibName: CharacterSelectionCell.identifier, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: CharacterSelectionCell.identifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        let layout = UICollectionViewFlowLayout()
+        let spacing = 16.0
+        let width = UIScreen.main.bounds.width - (spacing * 4)
+
+        layout.itemSize = .init(width: width / 3, height: width / 2.5)
+        layout.sectionInset = UIEdgeInsets(
+            top: spacing,
+            left: spacing,
+            bottom: spacing,
+            right: spacing
+        )
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.scrollDirection = .vertical
+
+        collectionView.collectionViewLayout = layout
+    }
+}
+
+// MARK: - UICollectionViewDataSource 구현부
 
 extension CharacterSelectionViewController: UICollectionViewDataSource {
 
@@ -60,6 +119,8 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate 구현부
+
 extension CharacterSelectionViewController: UICollectionViewDelegate {
 
     func collectionView(
@@ -69,8 +130,10 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
         guard let type = TamagotchiType(rawValue: indexPath.row)
         else {
             // TODO: - 준비중이에요 얼럿 처리
+
             return
         }
+
         guard let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
@@ -78,47 +141,9 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
             withIdentifier: CharacterDetailPopUpViewController.identifier
         ) as? CharacterDetailPopUpViewController
         else { return }
-        viewController.configure(with: type)
+        viewController.configure(with: type, status: status)
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .overFullScreen
         present(viewController, animated: true)
-    }
-}
-
-// MARK: - Private Method
-
-private extension CharacterSelectionViewController {
-
-    func configureUI() {
-        configureNavigationItem()
-        configureCollectionView()
-    }
-
-    func configureNavigationItem() {
-        navigationItem.title = "다마고치 선택하기"
-    }
-
-    func configureCollectionView() {
-        let nib = UINib(nibName: CharacterSelectionCell.identifier, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: CharacterSelectionCell.identifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-
-        let layout = UICollectionViewFlowLayout()
-        let spacing = 16.0
-        let width = UIScreen.main.bounds.width - (spacing * 4)
-
-        layout.itemSize = .init(width: width / 3, height: width / 2.5)
-        layout.sectionInset = UIEdgeInsets(
-            top: spacing,
-            left: spacing,
-            bottom: spacing,
-            right: spacing
-        )
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = .vertical
-
-        collectionView.collectionViewLayout = layout
     }
 }
