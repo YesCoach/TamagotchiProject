@@ -54,7 +54,7 @@ final class MainViewController: UIViewController {
         tamagotchi = UserDefaultsManager.currentTamagotchi
     }
 
-    // MARK: - Action
+    // MARK: - Actions
 
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
         feedRice()

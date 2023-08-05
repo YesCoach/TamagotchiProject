@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428C2A7E628A00C8460E /* UIAlertController+.swift */; };
 		89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */; };
 		89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */; };
 		89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DC2A7C9CED00DA1978 /* CharacterSelectionViewController.swift */; };
@@ -29,9 +30,11 @@
 		89CA34132A7DE0E400DA1978 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CA34122A7DE0E400DA1978 /* Setting.storyboard */; };
 		89CA34152A7DE14F00DA1978 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34142A7DE14F00DA1978 /* SettingViewController.swift */; };
 		89CA34182A7E506100DA1978 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34172A7E506100DA1978 /* SettingType.swift */; };
+		89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34192A7E5F5B00DA1978 /* SettingNameChangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8954428C2A7E628A00C8460E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		89CA33D52A7C9CED00DA1978 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		89CA34122A7DE0E400DA1978 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		89CA34142A7DE14F00DA1978 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		89CA34172A7E506100DA1978 /* SettingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingType.swift; sourceTree = "<group>"; };
+		89CA34192A7E5F5B00DA1978 /* SettingNameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameChangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				89CA33F52A7CCBB300DA1978 /* UIColor+.swift */,
+				8954428C2A7E628A00C8460E /* UIAlertController+.swift */,
 				89CA34022A7CE54400DA1978 /* UIButton+.swift */,
 				89CA34092A7D11C300DA1978 /* UIButtonConfiguration+.swift */,
 				89CA34042A7CE69B00DA1978 /* UILabel+.swift */,
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				89CA34142A7DE14F00DA1978 /* SettingViewController.swift */,
+				89CA34192A7E5F5B00DA1978 /* SettingNameChangeViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */,
+				8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */,
 				89CA34112A7D291900DA1978 /* UserDefaultsWrapper.swift in Sources */,
 				89CA340C2A7D1D6100DA1978 /* UITextField+.swift in Sources */,
 				89CA34152A7DE14F00DA1978 /* SettingViewController.swift in Sources */,
@@ -276,6 +283,7 @@
 				89CA34052A7CE69B00DA1978 /* UILabel+.swift in Sources */,
 				89CA33FE2A7CDED900DA1978 /* CharacterDetailPopUpViewController.swift in Sources */,
 				89CA34182A7E506100DA1978 /* SettingType.swift in Sources */,
+				89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */,
 				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

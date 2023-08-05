@@ -35,6 +35,7 @@ private extension SettingViewController {
 
     func configureUI() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
 
         configureNavigationItem()
@@ -77,3 +78,18 @@ extension SettingViewController: UITableViewDataSource {
     }
 }
 
+extension SettingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let type = SettingType(rawValue: indexPath.row) else { return }
+        switch type {
+        case .nameChange:
+            guard let viewController = storyboard?.instantiateViewController(
+                withIdentifier: SettingNameChangeViewController.identifier
+            ) as? SettingNameChangeViewController
+            else { return }
+            navigationController?.pushViewController(viewController, animated: true)
+
+        default: return
+        }
+    }
+}

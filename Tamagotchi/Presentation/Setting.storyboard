@@ -78,6 +78,58 @@
             </objects>
             <point key="canvasLocation" x="938.16793893129773" y="-2.1126760563380285"/>
         </scene>
+        <!--Setting Name Change View Controller-->
+        <scene sceneID="Uxx-Ny-1E8">
+            <objects>
+                <viewController storyboardIdentifier="SettingNameChangeViewController" id="FXr-8e-WJg" customClass="SettingNameChangeViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E5s-FU-Ing">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-Nm-fVg">
+                                <rect key="frame" x="40" y="143" width="313" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didKeyboardReturnEntered:" destination="FXr-8e-WJg" eventType="editingDidEndOnExit" id="cEV-4c-5H8"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hwd-zr-5vU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Hwd-zr-5vU" firstAttribute="trailing" secondItem="TmS-Nm-fVg" secondAttribute="trailing" constant="40" id="1Km-3z-PYN"/>
+                            <constraint firstItem="TmS-Nm-fVg" firstAttribute="top" secondItem="Hwd-zr-5vU" secondAttribute="top" constant="40" id="Duc-mQ-dR8"/>
+                            <constraint firstItem="TmS-Nm-fVg" firstAttribute="leading" secondItem="Hwd-zr-5vU" secondAttribute="leading" constant="40" id="nld-i8-cm8"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7pT-Oi-qQA" appends="YES" id="hed-MR-kgG"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="REw-pi-9ND">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="WQ0-Q1-5ZY">
+                            <connections>
+                                <action selector="didSaveButtonTouched:" destination="FXr-8e-WJg" id="ffi-QC-HSi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nickNameTextField" destination="TmS-Nm-fVg" id="9zf-CV-xzN"/>
+                        <outlet property="saveBarButtonItem" destination="WQ0-Q1-5ZY" id="Stn-iY-a7P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0M-N6-VHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7pT-Oi-qQA">
+                    <connections>
+                        <action selector="didBackgroundViewTouched:" destination="FXr-8e-WJg" id="I77-wR-AKD"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3437.4045801526718" y="-2.1126760563380285"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zsx-jx-ok8">
             <objects>
@@ -95,6 +147,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPo-Ez-XdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11.450381679389313" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="feg-21-RtH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a6i-us-bZa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TIL-J9-7hb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FXr-8e-WJg" kind="relationship" relationship="rootViewController" id="h8J-CP-wo9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNB-jB-Qh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510.6870229007632" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
