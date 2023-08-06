@@ -36,6 +36,7 @@ final class SettingNameChangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        viewModel.viewDidLoad()
         bindingViewModel()
     }
 
@@ -62,21 +63,21 @@ extension SettingNameChangeViewController {
 
     func configureUI() {
         configureNavigationItem()
-
         view.backgroundColor = .background
-
         nicknameTextField.setupBottomBorder()
-        nicknameTextField.placeholder = "\(UserDefaultsManager.currentNickname)님 이름을 알려주세요!"
     }
 
     func configureNavigationItem() {
-        navigationItem.title = "\(UserDefaultsManager.currentNickname)님 이름 정하기"
         navigationItem.backBarButtonItem?.tintColor = .border
         saveBarButtonItem.title = "저장"
         saveBarButtonItem.tintColor = .border
     }
 
     func bindingViewModel() {
+        viewModel.currentName.bind { [weak self] name in
+            self?.nicknameTextField.placeholder = "\(name)님 이름을 알려주세요!"
+            self?.navigationItem.title = "\(name)님 이름 정하기"
+        }
         viewModel.isNewNameUnavailable.bind { [weak self] isUnavailable in
             if isUnavailable {
                 let alertController = UIAlertController.simpleConfirmAlert(
@@ -91,4 +92,5 @@ extension SettingNameChangeViewController {
             }
         }
     }
+
 }

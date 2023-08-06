@@ -19,12 +19,26 @@ protocol SettingViewModelOutput {
 
 protocol SettingViewModel: SettingViewModelInput, SettingViewModelOutput { }
 
+
 final class DefaultSettingViewModel: SettingViewModel {
+
+    private let characterUseCase: CharacterUseCase
+    private let userUseCase: UserUseCase
 
     // MARK: - Output
 
     let dataList: CustomObservable<[SettingType]> = .init(SettingType.allCases)
     let currentNickName: CustomObservable<String> = .init("")
+
+    // MARK: - Dependency Injection
+
+    init(
+        characterUseCase: CharacterUseCase = DefaultCharacterUseCase(),
+        userUseCase: UserUseCase = DefaultUserUseCase()
+    ) {
+        self.characterUseCase = characterUseCase
+        self.userUseCase = userUseCase
+    }
 
 }
 
@@ -33,11 +47,12 @@ final class DefaultSettingViewModel: SettingViewModel {
 extension DefaultSettingViewModel {
 
     func viewWillAppear() {
-        currentNickName.value = UserDefaultsManager.currentNickname
+        currentNickName.value = userUseCase.loadUserName()
     }
 
     func willDataReset() {
-        UserDefaultsManager.resetUserData()
+        characterUseCase.resetCharacter()
+        userUseCase.resetUser()
     }
 
 }

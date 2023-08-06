@@ -63,11 +63,15 @@ final class UserDefaultsManager {
 
     /// UserDefaults에 저장된 유저 데이터를 리셋합니다.
     static func resetUserData() {
+        currentNickname = "대장"
+        isLaunched = false
+    }
+
+    /// UserDefaults에 저장된 다마고치 데이터를 리셋합니다.
+    static func resetCharacterData() {
         currentType = 0
         currentLevel = 0
         currentRice = 0
         currentWater = 0
-        currentNickname = "대장"
-        isLaunched = false
     }
 }

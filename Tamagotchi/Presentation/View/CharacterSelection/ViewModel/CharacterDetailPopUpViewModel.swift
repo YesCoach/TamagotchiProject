@@ -25,7 +25,11 @@ protocol CharacterDetailPopUpViewModelOutput {
 protocol CharacterDetailPopUpViewModel: CharacterDetailPopUpViewModelInput,
                                         CharacterDetailPopUpViewModelOutput { }
 
+
 final class DefaultCharacterDetailPopUpViewModel: CharacterDetailPopUpViewModel {
+
+    private let characterUseCase: CharacterUseCase
+    private let userUseCase: UserUseCase
 
     private let tamagotchiType: TamagotchiType
     private let state: CharacterSelectionState
@@ -37,9 +41,16 @@ final class DefaultCharacterDetailPopUpViewModel: CharacterDetailPopUpViewModel 
     let infoLabelText: CustomObservable<String?> = .init(nil)
     let okButtonTitle: CustomObservable<String?> = .init(nil)
 
-    // MARK: - Initialize
+    // MARK: - Dependency Injection
 
-    init(type: TamagotchiType, state: CharacterSelectionState) {
+    init(
+        characterUseCase: CharacterUseCase = DefaultCharacterUseCase(),
+        userUseCase: UserUseCase = DefaultUserUseCase(),
+        type: TamagotchiType,
+        state: CharacterSelectionState
+    ) {
+        self.characterUseCase = characterUseCase
+        self.userUseCase = userUseCase
         self.tamagotchiType = type
         self.state = state
 
@@ -56,8 +67,8 @@ final class DefaultCharacterDetailPopUpViewModel: CharacterDetailPopUpViewModel 
 extension DefaultCharacterDetailPopUpViewModel {
 
     func didOkButtonTouched() {
-        UserDefaultsManager.currentType = tamagotchiType.rawValue
-        UserDefaultsManager.isLaunched = true
+        characterUseCase.updateCharacterType(with: tamagotchiType)
+        userUseCase.saveIsLaunchedValue(true)
     }
 
 }

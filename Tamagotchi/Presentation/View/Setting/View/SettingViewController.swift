@@ -35,6 +35,7 @@ final class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bindingViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -43,15 +43,14 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureNavigationBar()
+        viewModel.viewDidLoad()
         bindingViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureRandomBubbleLabel()
-        configureNavigationItem()
-        viewModel.willTamagotchiStoryChange()
+        viewModel.viewWillAppear()
     }
 
     // MARK: - Actions
@@ -97,12 +96,17 @@ extension MainViewController {
 
     func bindingViewModel() {
         viewModel.tamagotchi.bind { [weak self] tamagotchi in
-            self?.tamagotchiImageView.image = .init(named: tamagotchi.imageName)
-            self?.nameButton.setTitle(tamagotchi.type.name, for: .normal)
-            self?.statusLabel.text = tamagotchi.info
+            if let tamagotchi {
+                self?.tamagotchiImageView.image = .init(named: tamagotchi.imageName)
+                self?.nameButton.setTitle(tamagotchi.type.name, for: .normal)
+                self?.statusLabel.text = tamagotchi.info
+            }
         }
         viewModel.tamagotchhiStory.bind { [weak self] tamagotchiStory in
             self?.bubbleLabel.text = tamagotchiStory
+        }
+        viewModel.userName.bind { [weak self] name in
+            self?.navigationItem.title = "\(name)님의 다마고치"
         }
     }
 
@@ -114,6 +118,8 @@ private extension MainViewController {
 
     func configureUI() {
         configureButton()
+        configureNavigationBar()
+        configureNavigationItem()
 
         view.backgroundColor = .background
         contentView.backgroundColor = .background
@@ -149,7 +155,6 @@ private extension MainViewController {
     }
 
     func configureNavigationItem() {
-        navigationItem.title = "\(UserDefaultsManager.currentNickname)님의 다마고치"
         settingBarButtonItem.image = .init(systemName: "person.circle")
     }
 

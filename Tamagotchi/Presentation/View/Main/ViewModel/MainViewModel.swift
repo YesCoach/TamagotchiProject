@@ -12,13 +12,15 @@ protocol MainViewModelInput {
     func didRiceButtonTouched(count: Int)
     func didWaterButtonTouched(count: Int)
     func willTamagotchiStoryChange()
-
+    func viewDidLoad()
+    func viewWillAppear()
 }
 
 protocol MainViewModelOutput {
 
-    var tamagotchi: CustomObservable<Tamagotchi> { get }
+    var tamagotchi: CustomObservable<Tamagotchi?> { get }
     var tamagotchhiStory: CustomObservable<String> { get }
+    var userName: CustomObservable<String> { get }
 
 }
 
@@ -26,14 +28,28 @@ protocol MainViewModel: MainViewModelInput, MainViewModelOutput { }
 
 final class DefaultMainViewModel: MainViewModel {
 
+    private let characterUseCase: CharacterUseCase
+    private let userUseCase: UserUseCase
+
+    init(
+        characterUseCase: CharacterUseCase = DefaultCharacterUseCase(),
+        userUseCase: UserUseCase = DefaultUserUseCase()
+    ) {
+        self.characterUseCase = characterUseCase
+        self.userUseCase = userUseCase
+    }
+
     // MARK: - Output
 
-    let tamagotchi: CustomObservable<Tamagotchi> = CustomObservable(
-        UserDefaultsManager.currentTamagotchi
-    )
-    let tamagotchhiStory: CustomObservable<String> = CustomObservable("")
+    let tamagotchi: CustomObservable<Tamagotchi?> = .init(nil)
+    let tamagotchhiStory: CustomObservable<String> = .init("")
+    let userName: CustomObservable<String> = .init("")
 
-    // MARK: - Input
+}
+
+// MARK: - Input
+
+extension DefaultMainViewModel {
 
     func didRiceButtonTouched(count: Int = 1) {
         feedRice(count: count)
@@ -46,19 +62,37 @@ final class DefaultMainViewModel: MainViewModel {
     func willTamagotchiStoryChange() {
         tamagotchhiStory.value = TamagotchiStory.randomStory()
     }
+
+    func viewDidLoad() {
+        tamagotchi.value = characterUseCase.loadCharacter()
+    }
+
+    func viewWillAppear() {
+        userName.value = userUseCase.loadUserName()
+        willTamagotchiStoryChange()
+    }
+
 }
+
+// MARK: - Private Methods
 
 private extension DefaultMainViewModel {
 
     func feedRice(count: Int) {
         let count = count < 100 ? count : 0
-        tamagotchi.value.rice += count
-        UserDefaultsManager.currentRice += count
+        
+        tamagotchi.value?.rice += count
+        if let tamagotchi = tamagotchi.value {
+            characterUseCase.saveCharacter(with: tamagotchi)
+        }
     }
 
     func feedWater(count: Int) {
         let count = count < 100 ? count : 0
-        tamagotchi.value.water += count
-        UserDefaultsManager.currentWater += count
+
+        tamagotchi.value?.water += count
+        if let tamagotchi = tamagotchi.value {
+            characterUseCase.saveCharacter(with: tamagotchi)
+        }
     }
 }
