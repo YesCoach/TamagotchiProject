@@ -133,8 +133,11 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
     ) {
         guard let type = TamagotchiType(rawValue: indexPath.row)
         else {
-            // TODO: - 준비중이에요 얼럿 처리
-
+            let alert = UIAlertController.simpleConfirmAlert(
+                title: "준비중이에요!",
+                message: "새로운 친구를 기대해주세요ㅎㅎ"
+            )
+            present(alert, animated: true)
             return
         }
 
