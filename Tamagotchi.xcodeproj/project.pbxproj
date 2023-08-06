@@ -10,6 +10,7 @@
 		8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428C2A7E628A00C8460E /* UIAlertController+.swift */; };
 		8954428F2A7E79F000C8460E /* TamagotchiStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428E2A7E79F000C8460E /* TamagotchiStory.swift */; };
 		895442912A7EA41600C8460E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442902A7EA41600C8460E /* UIViewController+.swift */; };
+		895442982A7F2E9B00C8460E /* CustomObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442972A7F2E9B00C8460E /* CustomObservable.swift */; };
 		89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */; };
 		89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */; };
 		89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DC2A7C9CED00DA1978 /* CharacterSelectionViewController.swift */; };
@@ -39,6 +40,7 @@
 		8954428C2A7E628A00C8460E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		8954428E2A7E79F000C8460E /* TamagotchiStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiStory.swift; sourceTree = "<group>"; };
 		895442902A7EA41600C8460E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		895442972A7F2E9B00C8460E /* CustomObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObservable.swift; sourceTree = "<group>"; };
 		89CA33D52A7C9CED00DA1978 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		895442952A7F2E5C00C8460E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89CA34082A7D005500DA1978 /* Main */,
+				89CA33FF2A7CDEF000DA1978 /* CharacterSelection */,
+				89CA34162A7DE15300DA1978 /* Setting */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		895442962A7F2E6400C8460E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				89CA33F42A7CCB3D00DA1978 /* Extension */,
+				895442972A7F2E9B00C8460E /* CustomObservable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		89CA33CC2A7C9CED00DA1978 = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +121,6 @@
 				89CA33F72A7CD59500DA1978 /* Domain */,
 				89CA33ED2A7CA88C00DA1978 /* Presentation */,
 				89CA340D2A7D277600DA1978 /* Data */,
-				89CA33F42A7CCB3D00DA1978 /* Extension */,
 				89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */,
 				89CA33E12A7C9CEF00DA1978 /* Assets.xcassets */,
 				89CA33E62A7C9CEF00DA1978 /* Info.plist */,
@@ -122,9 +142,8 @@
 			children = (
 				89CA33DE2A7C9CED00DA1978 /* Main.storyboard */,
 				89CA34122A7DE0E400DA1978 /* Setting.storyboard */,
-				89CA34082A7D005500DA1978 /* Main */,
-				89CA33FF2A7CDEF000DA1978 /* CharacterSelection */,
-				89CA34162A7DE15300DA1978 /* Setting */,
+				895442952A7F2E5C00C8460E /* View */,
+				895442962A7F2E6400C8460E /* Utilities */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -281,6 +300,7 @@
 				89CA33FC2A7CD83C00DA1978 /* TamagotchiType.swift in Sources */,
 				89CA33F02A7CAA7F00DA1978 /* CharacterSelectionCell.swift in Sources */,
 				89CA340A2A7D11C300DA1978 /* UIButtonConfiguration+.swift in Sources */,
+				895442982A7F2E9B00C8460E /* CustomObservable.swift in Sources */,
 				89CA34032A7CE54400DA1978 /* UIButton+.swift in Sources */,
 				89CA34072A7D004D00DA1978 /* MainViewController.swift in Sources */,
 				89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */,
