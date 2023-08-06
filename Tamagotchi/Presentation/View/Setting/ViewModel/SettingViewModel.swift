@@ -13,7 +13,7 @@ protocol SettingViewModelInput {
 }
 
 protocol SettingViewModelOutput {
-    var dataSource: CustomObservable<[SettingType]> { get }
+    var dataList: CustomObservable<[SettingType]> { get }
     var currentNickName: CustomObservable<String> { get }
 }
 
@@ -23,11 +23,10 @@ final class DefaultSettingViewModel: SettingViewModel {
 
     // MARK: - Output
 
-    let dataSource: CustomObservable<[SettingType]> = .init(SettingType.allCases)
+    let dataList: CustomObservable<[SettingType]> = .init(SettingType.allCases)
     let currentNickName: CustomObservable<String> = .init("")
 
 }
-
 
 // MARK: - Input
 

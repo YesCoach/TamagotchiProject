@@ -19,18 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        // Debug
-        //        UserDefaultsManager.isLaunched = true
-
         if UserDefaultsManager.isLaunched == false {
-            guard let viewController = UIStoryboard(
+            let viewController = UIStoryboard(
                 name: "Main",
                 bundle: nil
             ).instantiateViewController(
-                withIdentifier: CharacterSelectionViewController.identifier
-            ) as? CharacterSelectionViewController
-            else { return }
-
+                identifier: CharacterSelectionViewController.identifier,
+                creator: { coder in
+                    let viewController = CharacterSelectionViewController(
+                        viewModel: DefaultCharacterSelectionViewModel(status: .initial),
+                        coder: coder
+                    )
+                    return viewController
+                }
+            )
             window?.rootViewController = UINavigationController(rootViewController: viewController)
         } else {
             let viewController = UIStoryboard(

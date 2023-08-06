@@ -72,7 +72,7 @@ private extension SettingViewController {
     }
 
     func bindingViewModel() {
-        viewModel.dataSource.bind { [weak self] _ in
+        viewModel.dataList.bind { [weak self] _ in
             self?.tableView.reloadData()
         }
         viewModel.currentNickName.bind { [weak self] _ in
@@ -86,7 +86,7 @@ private extension SettingViewController {
 extension SettingViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.dataSource.value.count
+        return viewModel.dataList.value.count
     }
 
     func tableView(
@@ -96,7 +96,7 @@ extension SettingViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         else { return UITableViewCell() }
 
-        let type = viewModel.dataSource.value[indexPath.row]
+        let type = viewModel.dataList.value[indexPath.row]
 
         cell.imageView?.image = .init(systemName: type.imageName)
         cell.textLabel?.text = type.title
@@ -115,7 +115,7 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = viewModel.dataSource.value[indexPath.row]
+        let type = viewModel.dataList.value[indexPath.row]
 
         switch type {
 
@@ -137,15 +137,20 @@ extension SettingViewController: UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
 
         case .tamagotchiChange:
-            guard let viewController = UIStoryboard(
+            let viewController = UIStoryboard(
                 name: "Main",
                 bundle: nil
             ).instantiateViewController(
-                withIdentifier: CharacterSelectionViewController.identifier
-            ) as? CharacterSelectionViewController
-            else { return }
+                identifier: CharacterSelectionViewController.identifier,
+                creator: { coder in
+                    let viewController = CharacterSelectionViewController(
+                        viewModel: DefaultCharacterSelectionViewModel(status: .change),
+                        coder: coder
+                    )
+                    return viewController
+                }
+            )
 
-            viewController.configure(with: .change)
             navigationController?.pushViewController(viewController, animated: true)
 
         case .dataReset:
@@ -161,13 +166,19 @@ extension SettingViewController: UITableViewDelegate {
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-                guard let viewController = UIStoryboard(
+                let viewController = UIStoryboard(
                     name: "Main",
                     bundle: nil
                 ).instantiateViewController(
-                    withIdentifier: CharacterSelectionViewController.identifier
-                ) as? CharacterSelectionViewController
-                else { return }
+                    identifier: CharacterSelectionViewController.identifier,
+                    creator: { coder in
+                        let viewController = CharacterSelectionViewController(
+                            viewModel: DefaultCharacterSelectionViewModel(status: .initial),
+                            coder: coder
+                        )
+                        return viewController
+                    }
+                )
 
                 let nav = UINavigationController(rootViewController: viewController)
 

@@ -22,28 +22,28 @@ final class CharacterSelectionViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     // MARK: - Properties
-    private let data = TamagotchiType.allCases
 
-    var status: CharacterSelectionState = .initial
+    private let viewModel: CharacterSelectionViewModel
+
+    // MARK: - Initializer
+
+    init?(viewModel: CharacterSelectionViewModel, coder: NSCoder) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        viewModel.viewDidLoad()
+        bindingViewModel()
         configureUI()
-    }
-
-}
-
-// MARK: - Methods
-
-extension CharacterSelectionViewController {
-
-    /// 다마고치 선택 화면의 종류를 설정합니다.
-    /// - Parameter status: .initial: 시작하기, .change: 변경하기
-    func configure(with status: CharacterSelectionState) {
-        self.status = status
     }
 
 }
@@ -60,7 +60,6 @@ private extension CharacterSelectionViewController {
     }
 
     func configureNavigationItem() {
-        navigationItem.title = (status == .change ? "다마고치 변경하기" : "다마고치 선택하기")
         navigationController?.navigationBar.barTintColor = .background
         navigationController?.navigationBar.backgroundColor = .background
     }
@@ -89,6 +88,15 @@ private extension CharacterSelectionViewController {
         collectionView.collectionViewLayout = layout
     }
 
+    func bindingViewModel() {
+        viewModel.navigationItemTitle.bind { [weak self] title in
+            self?.navigationItem.title = title
+        }
+        viewModel.dataList.bind { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
+    }
+
 }
 
 // MARK: - UICollectionViewDataSource 구현부
@@ -99,7 +107,7 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return data.count + 20
+        return viewModel.dataList.value.count + 20
     }
 
     func collectionView(
@@ -112,8 +120,8 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
         ) as? CharacterSelectionCell
         else { return UICollectionViewCell() }
 
-        let row = indexPath.row
-        if let type = TamagotchiType(rawValue: row) {
+        if viewModel.dataList.value.count > indexPath.row {
+            let type = viewModel.dataList.value[indexPath.row]
             cell.configure(with: type)
         } else {
             cell.configureEmpty()
@@ -132,8 +140,7 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        guard let type = TamagotchiType(rawValue: indexPath.row)
-        else {
+        guard indexPath.row < viewModel.dataList.value.count else {
             let alert = UIAlertController.simpleConfirmAlert(
                 title: "준비중이에요!",
                 message: "새로운 친구를 기대해주세요ㅎㅎ"
@@ -142,16 +149,19 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
             return
         }
 
+        let type = viewModel.dataList.value[indexPath.row]
+
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
         ).instantiateViewController(
             identifier: CharacterDetailPopUpViewController.identifier,
             creator: { [weak self] coder in
+                guard let self else { return nil }
                 let viewController = CharacterDetailPopUpViewController(
                     viewModel: DefaultCharacterDetailPopUpViewModel(
                         type: type,
-                        state: self?.status ?? .change
+                        state: self.viewModel.viewState.value
                     ),
                     coder: coder
                 )
@@ -163,4 +173,5 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
         viewController.modalPresentationStyle = .overFullScreen
         present(viewController, animated: true)
     }
+
 }
