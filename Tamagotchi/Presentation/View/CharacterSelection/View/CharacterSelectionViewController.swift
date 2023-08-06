@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CharacterSelectionStatus {
+enum CharacterSelectionState {
     case initial
     case change
 }
@@ -24,7 +24,7 @@ final class CharacterSelectionViewController: UIViewController {
     // MARK: - Properties
     private let data = TamagotchiType.allCases
 
-    var status: CharacterSelectionStatus = .initial
+    var status: CharacterSelectionState = .initial
 
     // MARK: - View Life Cycle
 
@@ -40,10 +40,9 @@ final class CharacterSelectionViewController: UIViewController {
 
 extension CharacterSelectionViewController {
 
-
     /// 다마고치 선택 화면의 종류를 설정합니다.
     /// - Parameter status: .initial: 시작하기, .change: 변경하기
-    func configure(with status: CharacterSelectionStatus) {
+    func configure(with status: CharacterSelectionState) {
         self.status = status
     }
 
@@ -89,6 +88,7 @@ private extension CharacterSelectionViewController {
 
         collectionView.collectionViewLayout = layout
     }
+
 }
 
 // MARK: - UICollectionViewDataSource 구현부
@@ -121,6 +121,7 @@ extension CharacterSelectionViewController: UICollectionViewDataSource {
 
         return cell
     }
+
 }
 
 // MARK: - UICollectionViewDelegate 구현부
@@ -141,14 +142,23 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
             return
         }
 
-        guard let viewController = UIStoryboard(
+        let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
         ).instantiateViewController(
-            withIdentifier: CharacterDetailPopUpViewController.identifier
-        ) as? CharacterDetailPopUpViewController
-        else { return }
-        viewController.configure(with: type, status: status)
+            identifier: CharacterDetailPopUpViewController.identifier,
+            creator: { [weak self] coder in
+                let viewController = CharacterDetailPopUpViewController(
+                    viewModel: DefaultCharacterDetailPopUpViewModel(
+                        type: type,
+                        state: self?.status ?? .change
+                    ),
+                    coder: coder
+                )
+                return viewController
+            }
+        )
+
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .overFullScreen
         present(viewController, animated: true)

@@ -23,12 +23,30 @@ final class CharacterDetailPopUpViewController: UIViewController {
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var okButton: UIButton!
 
-    private var tamagotchiType: TamagotchiType?
-    private var characterSelectionStatus: CharacterSelectionStatus?
+    // MARK: - Properties
+
+    private let viewModel: CharacterDetailPopUpViewModel
+
+    // MARK: - Initializer
+
+    init?(
+        viewModel: CharacterDetailPopUpViewModel,
+        coder: NSCoder
+    ) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - View LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bindingViewModel()
     }
 
     // MARK: - Actions
@@ -41,9 +59,7 @@ final class CharacterDetailPopUpViewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-        guard let tamagotchiType else { return }
-
-        UserDefaultsManager.currentType = tamagotchiType.rawValue
+        viewModel.didOkButtonTouched()
 
         let viewController = UIStoryboard(
             name: "Main",
@@ -59,22 +75,10 @@ final class CharacterDetailPopUpViewController: UIViewController {
             }
         )
 
-        UserDefaultsManager.isLaunched = true
         let nav = UINavigationController(rootViewController: viewController)
 
         sceneDelegate?.window?.rootViewController = nav
         sceneDelegate?.window?.makeKeyAndVisible()
-    }
-
-}
-
-// MARK: - Method
-
-extension CharacterDetailPopUpViewController {
-
-    func configure(with type: TamagotchiType, status: CharacterSelectionStatus) {
-        self.tamagotchiType = type
-        self.characterSelectionStatus = status
     }
 
 }
@@ -84,25 +88,20 @@ extension CharacterDetailPopUpViewController {
 private extension CharacterDetailPopUpViewController {
 
     func configureUI() {
-
-        imageView.image = .init(named: tamagotchiType?.thumbnailImage ?? "noImage")
         imageView.contentMode = .scaleAspectFill
 
-        nameButton.setupNameButton(tamagotchiType?.name)
-
+        nameButton.setupNameButton()
         separator.backgroundColor = .border
         bottomSeparator.backgroundColor = .separator
 
         infoLabel.setupTextStyleBody()
         infoLabel.numberOfLines = 0
-        infoLabel.text = tamagotchiType?.description
         infoLabel.textAlignment = .center
 
         cancelButton.setTitle("취소", for: .normal)
         cancelButton.backgroundColor = .cancleButton
         cancelButton.setTitleColor(.border, for: .normal)
 
-        okButton.setTitle(characterSelectionStatus == .initial ? "시작하기" : "변경하기", for: .normal)
         okButton.backgroundColor = .background
         okButton.setTitleColor(.border, for: .normal)
 
@@ -112,4 +111,20 @@ private extension CharacterDetailPopUpViewController {
         popUpview.clipsToBounds = true
         popUpview.backgroundColor = .background
     }
+
+    func bindingViewModel() {
+        viewModel.thumbnailImageName.bind { [weak self] imageName in
+            self?.imageView.image = .init(named: imageName)
+        }
+        viewModel.infoLabelText.bind { [weak self] text in
+            self?.infoLabel.text = text
+        }
+        viewModel.nameButtonTitle.bind { [weak self] title in
+            self?.nameButton.setTitle(title, for: .normal)
+        }
+        viewModel.okButtonTitle.bind { [weak self] title in
+            self?.okButton.setTitle(title, for: .normal)
+        }
+    }
+
 }
