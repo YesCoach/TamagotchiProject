@@ -19,29 +19,34 @@ protocol UserUseCase {
 
 final class DefaultUserUseCase: UserUseCase {
 
+    private let userRepository: UserRepository
+
+    init(userRepository: UserRepository = DefaultUserRepository()) {
+        self.userRepository = userRepository
+    }
 
 }
 
 extension DefaultUserUseCase {
 
     func saveIsLaunchedValue(_ isLaunched: Bool) {
-        UserDefaultsManager.isLaunched = isLaunched
+        userRepository.saveIsLaunchedValue(isLaunched)
     }
 
     func loadIsLaunchedValue() -> Bool {
-        return UserDefaultsManager.isLaunched
+        return userRepository.loadIsLaunchedValue()
     }
 
     func saveUserName(with name: String) {
-        UserDefaultsManager.currentNickname = name
+        userRepository.saveUserName(with: name)
     }
 
     func loadUserName() -> String {
-        return UserDefaultsManager.currentNickname
+        return userRepository.loadUserName()
     }
 
     func resetUser() {
-        UserDefaultsManager.resetUserData()
+        return userRepository.resetUser()
     }
 
 }

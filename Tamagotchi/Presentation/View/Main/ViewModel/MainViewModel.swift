@@ -88,7 +88,7 @@ private extension DefaultMainViewModel {
     }
 
     func feedWater(count: Int) {
-        let count = count < 100 ? count : 0
+        let count = count < 50 ? count : 0
 
         tamagotchi.value?.water += count
         if let tamagotchi = tamagotchi.value {
