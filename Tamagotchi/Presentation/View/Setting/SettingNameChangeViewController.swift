@@ -13,30 +13,36 @@ final class SettingNameChangeViewController: UIViewController {
 
     // MARK: - UI Components
 
-    @IBOutlet var nickNameTextField: UITextField!
+    @IBOutlet var nicknameTextField: UITextField!
     @IBOutlet var saveBarButtonItem: UIBarButtonItem!
+
+    // MARK: - Properties
+
+    private let viewModel: SettingNameChangeViewModel
+
+    // MARK: - Initializer
+
+    init?(viewModel: SettingNameChangeViewModel, coder: NSCoder) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - View LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-
+        bindingViewModel()
     }
 
     // MARK: - Actions
 
     @IBAction func didSaveButtonTouched(_ sender: UIBarButtonItem) {
-        let nicknameLength = nickNameTextField.text!.count
-        guard nicknameLength > 1 && nicknameLength < 7
-        else {
-            let alertController = UIAlertController.simpleConfirmAlert(
-                message: "이름은 2글자 이상 6글자 이하까지 가능해요!"
-            )
-            present(alertController, animated: true)
-            return
-        }
-
-        UserDefaultsManager.currentNickname = nickNameTextField.text!
-        navigationController?.popViewController(animated: true)
+        viewModel.didSaveButtonTouched(newName: nicknameTextField.text!)
     }
 
     @IBAction func didKeyboardReturnEntered(_ sender: UITextField) {
@@ -59,8 +65,8 @@ extension SettingNameChangeViewController {
 
         view.backgroundColor = .background
 
-        nickNameTextField.setupBottomBorder()
-        nickNameTextField.placeholder = "\(UserDefaultsManager.currentNickname)님 이름을 알려주세요!"
+        nicknameTextField.setupBottomBorder()
+        nicknameTextField.placeholder = "\(UserDefaultsManager.currentNickname)님 이름을 알려주세요!"
     }
 
     func configureNavigationItem() {
@@ -70,4 +76,19 @@ extension SettingNameChangeViewController {
         saveBarButtonItem.tintColor = .border
     }
 
+    func bindingViewModel() {
+        viewModel.isNewNameUnavailable.bind { [weak self] isUnavailable in
+            if isUnavailable {
+                let alertController = UIAlertController.simpleConfirmAlert(
+                    message: "이름은 2글자 이상 6글자 이하까지 가능해요!"
+                )
+                self?.present(alertController, animated: true)
+            }
+        }
+        viewModel.isNameChangeCompleted.bind { [weak self] isCompleted in
+            if isCompleted {
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 }

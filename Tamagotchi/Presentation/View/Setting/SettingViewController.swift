@@ -95,12 +95,23 @@ extension SettingViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = SettingType(rawValue: indexPath.row) else { return }
+
         switch type {
+
         case .nameChange:
-            guard let viewController = storyboard?.instantiateViewController(
-                withIdentifier: SettingNameChangeViewController.identifier
-            ) as? SettingNameChangeViewController
-            else { return }
+            let viewController = UIStoryboard(
+                name: "Setting",
+                bundle: nil
+            ).instantiateViewController(
+                identifier: SettingNameChangeViewController.identifier,
+                creator: { coder in
+                    let viewController = SettingNameChangeViewController(
+                        viewModel: DefaultSettingNameChangeViewModel(),
+                        coder: coder
+                    )
+                    return viewController
+                }
+            )
 
             navigationController?.pushViewController(viewController, animated: true)
 
