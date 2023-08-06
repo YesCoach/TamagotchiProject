@@ -25,17 +25,12 @@ final class MainViewController: UIViewController {
     @IBOutlet var waterButton: UIButton!
     @IBOutlet var settingBarButtonItem: UIBarButtonItem!
 
-    private var tamagotchi: Tamagotchi {
-        didSet {
-            tamagotchiImageView.image = UIImage(named: tamagotchi.imageName)
-            statusLabel.text = tamagotchi.info
-        }
-    }
+    private let viewModel: MainViewModel
 
     // MARK: - Initializer
 
-    init?(tamagotchi: Tamagotchi, coder: NSCoder) {
-        self.tamagotchi = tamagotchi
+    init?(viewModel: MainViewModel, coder: NSCoder) {
+        self.viewModel = viewModel
         super.init(coder: coder)
     }
 
@@ -49,23 +44,27 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigationBar()
+        bindingViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureRandomBubbleLabel()
         configureNavigationItem()
+        viewModel.willTamagotchiStoryChange()
     }
 
     // MARK: - Actions
 
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
-        feedRice()
+        viewModel.didRiceButtonTouched(count: Int(riceTextField.text!) ?? 1)
+        riceTextField.text = nil
         configureRandomBubbleLabel()
     }
 
     @IBAction func didWaterButtonTouched(_ sender: UIButton) {
-        feedWater()
+        viewModel.didWaterButtonTouched(count: Int(waterTextField.text!) ?? 1)
+        waterTextField.text = nil
         configureRandomBubbleLabel()
     }
 
@@ -86,6 +85,23 @@ final class MainViewController: UIViewController {
     }
 }
 
+// MARK: - Method
+
+extension MainViewController {
+
+    func bindingViewModel() {
+        viewModel.tamagotchi.bind { [weak self] tamagotchi in
+            self?.tamagotchiImageView.image = .init(named: tamagotchi.imageName)
+            self?.nameButton.setTitle(tamagotchi.type.name, for: .normal)
+            self?.statusLabel.text = tamagotchi.info
+        }
+        viewModel.tamagotchhiStory.bind { [weak self] tamagotchiStory in
+            self?.bubbleLabel.text = tamagotchiStory
+        }
+    }
+
+}
+
 // MARK: - Private Method
 
 private extension MainViewController {
@@ -100,12 +116,8 @@ private extension MainViewController {
         bubbleLabel.numberOfLines = 0
         bubbleLabel.setupTextStyleSubTitle()
 
-        tamagotchiImageView.image = .init(named: tamagotchi.imageName)
         tamagotchiImageView.contentMode = .scaleAspectFill
-
-        nameButton.setupNameButton(tamagotchi.type.name)
-
-        statusLabel.text = tamagotchi.info
+        nameButton.setupNameButton()
         statusLabel.setupTextStyleSubTitle()
 
         riceTextField.setupBottomBorder()
@@ -144,29 +156,6 @@ private extension MainViewController {
     }
 
     func configureRandomBubbleLabel() {
-        bubbleLabel.text = TamagotchiStory.randomStory()
+        viewModel.willTamagotchiStoryChange()
     }
-
-    func feedRice() {
-        if let count = Int(riceTextField.text!) {
-            tamagotchi.rice += count < 100 ? count : 0
-            UserDefaultsManager.currentRice += count < 100 ? count : 0
-        } else {
-            tamagotchi.rice += 1
-            UserDefaultsManager.currentRice += 1
-        }
-        riceTextField.text = nil
-    }
-
-    func feedWater() {
-        if let count = Int(waterTextField.text!) {
-            tamagotchi.water += count < 50 ? count : 0
-            UserDefaultsManager.currentWater += count < 50 ? count : 0
-        } else {
-            tamagotchi.water += 1
-            UserDefaultsManager.currentWater += 1
-        }
-        waterTextField.text = nil
-    }
-
 }

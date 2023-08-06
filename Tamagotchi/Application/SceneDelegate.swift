@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 identifier: MainViewController.identifier,
                 creator: { coder in
                     let viewController = MainViewController(
-                        tamagotchi: UserDefaultsManager.currentTamagotchi,
+                        viewModel: DefaultMainViewModel(),
                         coder: coder
                     )
                     return viewController
