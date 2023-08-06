@@ -223,18 +223,17 @@
 			children = (
 				895442C52A7FFC1300C8460E /* UserStorage */,
 				895442BD2A7FF87C00C8460E /* CharacterStorage */,
-				895442B82A7FF65000C8460E /* UserDefaults */,
 			);
 			path = PersistentStorages;
 			sourceTree = "<group>";
 		};
-		895442B82A7FF65000C8460E /* UserDefaults */ = {
+		895442B82A7FF65000C8460E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */,
 				89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */,
 			);
-			path = UserDefaults;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		895442BD2A7FF87C00C8460E /* CharacterStorage */ = {
@@ -258,9 +257,25 @@
 			isa = PBXGroup;
 			children = (
 				895442C62A7FFC2400C8460E /* UserStorage.swift */,
-				895442C82A7FFC5800C8460E /* UserDefaultsUser.swift */,
+				895442CA2A7FFE5800C8460E /* UserDefaultsStorage */,
 			);
 			path = UserStorage;
+			sourceTree = "<group>";
+		};
+		895442CA2A7FFE5800C8460E /* UserDefaultsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				895442C82A7FFC5800C8460E /* UserDefaultsUser.swift */,
+			);
+			path = UserDefaultsStorage;
+			sourceTree = "<group>";
+		};
+		895442CB2A7FFE8C00C8460E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				895442B82A7FF65000C8460E /* Services */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		89CA33CC2A7C9CED00DA1978 = {
@@ -286,6 +301,7 @@
 				89CA33F72A7CD59500DA1978 /* Domain */,
 				89CA33ED2A7CA88C00DA1978 /* Presentation */,
 				89CA340D2A7D277600DA1978 /* Data */,
+				895442CB2A7FFE8C00C8460E /* Infrastructure */,
 				89CA33E32A7C9CEF00DA1978 /* LaunchScreen.storyboard */,
 				89CA33E12A7C9CEF00DA1978 /* Assets.xcassets */,
 				89CA33E62A7C9CEF00DA1978 /* Info.plist */,
