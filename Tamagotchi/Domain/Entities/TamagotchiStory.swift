@@ -9,7 +9,6 @@ import Foundation
 
 struct TamagotchiStory {
 
-
     /// 다마고치의 이야기를 랜덤으로 반환합니다.
     /// - Returns: 다마고치 이야기 문자열
     static func randomStory() -> String {

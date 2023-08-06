@@ -16,26 +16,32 @@ protocol CharacterUseCase {
 
 }
 
-final class DefaultCharacterUseCase: CharacterUseCase {
+final class DefaultCharacterUseCase {
+
+    private let characterRepository: CharacterRepository
+
+    init(characterRepository: CharacterRepository = DefaultCharacterRepository()) {
+        self.characterRepository = characterRepository
+    }
 
 }
 
-extension DefaultCharacterUseCase {
+extension DefaultCharacterUseCase: CharacterUseCase {
 
     func loadCharacter() -> Tamagotchi {
-        return UserDefaultsManager.currentTamagotchi
+        return characterRepository.loadCharacter()
     }
 
     func saveCharacter(with data: Tamagotchi) {
-        UserDefaultsManager.currentTamagotchi = data
+        characterRepository.saveCharacter(with: data)
     }
 
     func updateCharacterType(with type: TamagotchiType) {
-        UserDefaultsManager.currentType = type.rawValue
+        characterRepository.updateCharacterType(with: type)
     }
 
     func resetCharacter() {
-        UserDefaultsManager.resetCharacterData()
+        characterRepository.resetCharacter()
     }
 
 }

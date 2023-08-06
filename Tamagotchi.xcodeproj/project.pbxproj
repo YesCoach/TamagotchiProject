@@ -18,6 +18,10 @@
 		895442AA2A7FD67900C8460E /* CharacterSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442A92A7FD67900C8460E /* CharacterSelectionViewModel.swift */; };
 		895442AD2A7FE0B400C8460E /* CharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442AC2A7FE0B400C8460E /* CharacterUseCase.swift */; };
 		895442AF2A7FE80500C8460E /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442AE2A7FE80500C8460E /* UserUseCase.swift */; };
+		895442B32A7FF47E00C8460E /* CharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442B22A7FF47E00C8460E /* CharacterRepository.swift */; };
+		895442B62A7FF5EA00C8460E /* DefaultCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442B52A7FF5EA00C8460E /* DefaultCharacterRepository.swift */; };
+		895442BA2A7FF6C100C8460E /* CharacterStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442B92A7FF6C100C8460E /* CharacterStorage.swift */; };
+		895442BF2A7FF89200C8460E /* UserDefaultsCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442BE2A7FF89200C8460E /* UserDefaultsCharacter.swift */; };
 		89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */; };
 		89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */; };
 		89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DC2A7C9CED00DA1978 /* CharacterSelectionViewController.swift */; };
@@ -55,6 +59,10 @@
 		895442A92A7FD67900C8460E /* CharacterSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewModel.swift; sourceTree = "<group>"; };
 		895442AC2A7FE0B400C8460E /* CharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUseCase.swift; sourceTree = "<group>"; };
 		895442AE2A7FE80500C8460E /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
+		895442B22A7FF47E00C8460E /* CharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
+		895442B52A7FF5EA00C8460E /* DefaultCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCharacterRepository.swift; sourceTree = "<group>"; };
+		895442B92A7FF6C100C8460E /* CharacterStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStorage.swift; sourceTree = "<group>"; };
+		895442BE2A7FF89200C8460E /* UserDefaultsCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsCharacter.swift; sourceTree = "<group>"; };
 		89CA33D52A7C9CED00DA1978 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +183,66 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		895442B02A7FF45A00C8460E /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				895442B12A7FF46800C8460E /* Repositories */,
+			);
+			name = Interfaces;
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		895442B12A7FF46800C8460E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				895442B22A7FF47E00C8460E /* CharacterRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		895442B42A7FF5CD00C8460E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				895442B52A7FF5EA00C8460E /* DefaultCharacterRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		895442B72A7FF63300C8460E /* PersistentStorages */ = {
+			isa = PBXGroup;
+			children = (
+				895442BD2A7FF87C00C8460E /* CharacterStorage */,
+				895442B82A7FF65000C8460E /* UserDefaults */,
+			);
+			path = PersistentStorages;
+			sourceTree = "<group>";
+		};
+		895442B82A7FF65000C8460E /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */,
+				89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		895442BD2A7FF87C00C8460E /* CharacterStorage */ = {
+			isa = PBXGroup;
+			children = (
+				895442B92A7FF6C100C8460E /* CharacterStorage.swift */,
+				895442C02A7FFA0200C8460E /* UserDefaultsStorage */,
+			);
+			path = CharacterStorage;
+			sourceTree = "<group>";
+		};
+		895442C02A7FFA0200C8460E /* UserDefaultsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				895442BE2A7FF89200C8460E /* UserDefaultsCharacter.swift */,
+			);
+			path = UserDefaultsStorage;
+			sourceTree = "<group>";
+		};
 		89CA33CC2A7C9CED00DA1978 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +312,7 @@
 			children = (
 				89CA33F82A7CD5A000DA1978 /* Entities */,
 				895442AB2A7FE08500C8460E /* UseCases */,
+				895442B02A7FF45A00C8460E /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -280,8 +349,8 @@
 		89CA340D2A7D277600DA1978 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */,
-				89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */,
+				895442B42A7FF5CD00C8460E /* Repositories */,
+				895442B72A7FF63300C8460E /* PersistentStorages */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -382,10 +451,13 @@
 				895442AA2A7FD67900C8460E /* CharacterSelectionViewModel.swift in Sources */,
 				895442A42A7FC7AE00C8460E /* SettingNameChangeViewModel.swift in Sources */,
 				89CA340A2A7D11C300DA1978 /* UIButtonConfiguration+.swift in Sources */,
+				895442B62A7FF5EA00C8460E /* DefaultCharacterRepository.swift in Sources */,
 				895442982A7F2E9B00C8460E /* CustomObservable.swift in Sources */,
+				895442BF2A7FF89200C8460E /* UserDefaultsCharacter.swift in Sources */,
 				89CA34032A7CE54400DA1978 /* UIButton+.swift in Sources */,
 				89CA34072A7D004D00DA1978 /* MainViewController.swift in Sources */,
 				89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */,
+				895442BA2A7FF6C100C8460E /* CharacterStorage.swift in Sources */,
 				89CA33FA2A7CD5EA00DA1978 /* Tamagotchi.swift in Sources */,
 				89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */,
 				895442912A7EA41600C8460E /* UIViewController+.swift in Sources */,
@@ -397,6 +469,7 @@
 				89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */,
 				8954429A2A7F2F3D00C8460E /* MainViewModel.swift in Sources */,
 				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,
+				895442B32A7FF47E00C8460E /* CharacterRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
