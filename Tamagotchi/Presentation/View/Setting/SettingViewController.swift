@@ -17,6 +17,19 @@ final class SettingViewController: UIViewController {
     @IBOutlet var dismissButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
 
+    private let viewModel: SettingViewModel
+
+    // MARK: - Initializer
+
+    init?(viewModel: SettingViewModel, coder: NSCoder) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - View LifeCycle
 
     override func viewDidLoad() {
@@ -26,7 +39,7 @@ final class SettingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        viewModel.viewWillAppear()
     }
 
     // MARK: - Actions
@@ -58,14 +71,22 @@ private extension SettingViewController {
         navigationController?.navigationBar.backgroundColor = .background
     }
 
+    func bindingViewModel() {
+        viewModel.dataSource.bind { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+        viewModel.currentNickName.bind { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+    }
 }
 
-// MARK: - TableViewDataSource 구현부
+// MARK: - UITableViewDataSource 구현부
 
 extension SettingViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingType.allCases.count
+        return viewModel.dataSource.value.count
     }
 
     func tableView(
@@ -75,15 +96,14 @@ extension SettingViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         else { return UITableViewCell() }
 
-        guard let type = SettingType(rawValue: indexPath.row)
-        else { return UITableViewCell() }
+        let type = viewModel.dataSource.value[indexPath.row]
 
         cell.imageView?.image = .init(systemName: type.imageName)
         cell.textLabel?.text = type.title
         cell.textLabel?.font = .systemFont(ofSize: 14.0, weight: .regular)
         cell.accessoryType = .disclosureIndicator
         cell.tintColor = .border
-        cell.detailTextLabel?.text = (type == .nameChange) ? UserDefaultsManager.currentNickname : nil
+        cell.detailTextLabel?.text = (type == .nameChange) ? viewModel.currentNickName.value : nil
         cell.backgroundColor = .background
 
         return cell
@@ -91,10 +111,11 @@ extension SettingViewController: UITableViewDataSource {
 
 }
 
+// MARK: - UITableViewDelegate 구현부
 extension SettingViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let type = SettingType(rawValue: indexPath.row) else { return }
+        let type = viewModel.dataSource.value[indexPath.row]
 
         switch type {
 
@@ -134,8 +155,9 @@ extension SettingViewController: UITableViewDelegate {
                 preferredStyle: .alert
             )
             let nopeAction = UIAlertAction(title: "아냐!", style: .default)
-            let confirmAction = UIAlertAction(title: "웅", style: .default) { _ in
-                UserDefaultsManager.resetUserData()
+            let confirmAction = UIAlertAction(title: "웅", style: .default) { [weak self] _ in
+                self?.viewModel.willDataReset()
+
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
 

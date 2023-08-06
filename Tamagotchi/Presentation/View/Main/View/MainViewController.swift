@@ -73,13 +73,19 @@ final class MainViewController: UIViewController {
     }
 
     @IBAction func didSettingButtonTouched(_ sender: UIBarButtonItem) {
-        guard let viewController = UIStoryboard(
+        let viewController = UIStoryboard(
             name: "Setting",
             bundle: nil
         ).instantiateViewController(
-            withIdentifier: SettingViewController.identifier
-        ) as? SettingViewController
-        else { return }
+            identifier: SettingViewController.identifier,
+            creator: { coder in
+                let viewController = SettingViewController(
+                    viewModel: DefaultSettingViewModel(),
+                    coder: coder
+                )
+                return viewController
+            }
+        )
 
         navigationController?.pushViewController(viewController, animated: true)
     }
