@@ -61,19 +61,9 @@ final class CharacterDetailPopUpViewController: UIViewController {
 
         viewModel.didOkButtonTouched()
 
-        let viewController = UIStoryboard(
-            name: "Main",
-            bundle: nil
-        ).instantiateViewController(
-            identifier: MainViewController.identifier,
-            creator: { coder in
-                let viewController = MainViewController(
-                    viewModel: DefaultMainViewModel(),
-                    coder: coder
-                )
-                return viewController
-            }
-        )
+        let viewController = AppDIContainer()
+            .makeDIContainer()
+            .makeMainViewController()
 
         let nav = UINavigationController(rootViewController: viewController)
 

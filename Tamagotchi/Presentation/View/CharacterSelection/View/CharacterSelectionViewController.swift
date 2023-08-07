@@ -150,25 +150,15 @@ extension CharacterSelectionViewController: UICollectionViewDelegate {
         }
 
         let type = viewModel.dataList.value[indexPath.row]
+        let state = viewModel.viewState.value
 
-        let viewController = UIStoryboard(
-            name: "Main",
-            bundle: nil
-        ).instantiateViewController(
-            identifier: CharacterDetailPopUpViewController.identifier,
-            creator: { [weak self] coder in
-                guard let self else { return nil }
-                let viewController = CharacterDetailPopUpViewController(
-                    viewModel: DefaultCharacterDetailPopUpViewModel(
-                        type: type,
-                        state: self.viewModel.viewState.value
-                    ),
-                    coder: coder
-                )
-                return viewController
-            }
-        )
-
+        let viewController = AppDIContainer()
+            .makeDIContainer()
+            .makeCharacterDetailPopUpViewController(
+                type: type,
+                state: state
+            )
+        
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .overFullScreen
         present(viewController, animated: true)

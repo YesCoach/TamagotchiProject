@@ -17,34 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
 
         if UserDefaultsManager.isLaunched == false {
-            let viewController = UIStoryboard(
-                name: "Main",
-                bundle: nil
-            ).instantiateViewController(
-                identifier: CharacterSelectionViewController.identifier,
-                creator: { coder in
-                    let viewController = CharacterSelectionViewController(
-                        viewModel: DefaultCharacterSelectionViewModel(state: .initial),
-                        coder: coder
-                    )
-                    return viewController
-                }
-            )
+            let viewController = AppDIContainer()
+                .makeDIContainer()
+                .makeCharacterSelectionViewController(state: .initial)
+
             window?.rootViewController = UINavigationController(rootViewController: viewController)
         } else {
-            let viewController = UIStoryboard(
-                name: "Main",
-                bundle: nil
-            ).instantiateViewController(
-                identifier: MainViewController.identifier,
-                creator: { coder in
-                    let viewController = MainViewController(
-                        viewModel: DefaultMainViewModel(),
-                        coder: coder
-                    )
-                    return viewController
-                }
-            )
+            let viewController = AppDIContainer()
+                .makeDIContainer()
+                .makeMainViewController()
 
             window?.rootViewController = UINavigationController(rootViewController: viewController)
         }

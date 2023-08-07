@@ -121,36 +121,16 @@ extension SettingViewController: UITableViewDelegate {
         switch type {
 
         case .nameChange:
-            let viewController = UIStoryboard(
-                name: "Setting",
-                bundle: nil
-            ).instantiateViewController(
-                identifier: SettingNameChangeViewController.identifier,
-                creator: { coder in
-                    let viewController = SettingNameChangeViewController(
-                        viewModel: DefaultSettingNameChangeViewModel(),
-                        coder: coder
-                    )
-                    return viewController
-                }
-            )
+            let viewController = AppDIContainer()
+                .makeDIContainer()
+                .makeSettingNameChangeViewController()
 
             navigationController?.pushViewController(viewController, animated: true)
 
         case .tamagotchiChange:
-            let viewController = UIStoryboard(
-                name: "Main",
-                bundle: nil
-            ).instantiateViewController(
-                identifier: CharacterSelectionViewController.identifier,
-                creator: { coder in
-                    let viewController = CharacterSelectionViewController(
-                        viewModel: DefaultCharacterSelectionViewModel(state: .change),
-                        coder: coder
-                    )
-                    return viewController
-                }
-            )
+            let viewController = AppDIContainer()
+                .makeDIContainer()
+                .makeCharacterSelectionViewController(state: .change)
 
             navigationController?.pushViewController(viewController, animated: true)
 
@@ -167,19 +147,9 @@ extension SettingViewController: UITableViewDelegate {
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
 
-                let viewController = UIStoryboard(
-                    name: "Main",
-                    bundle: nil
-                ).instantiateViewController(
-                    identifier: CharacterSelectionViewController.identifier,
-                    creator: { coder in
-                        let viewController = CharacterSelectionViewController(
-                            viewModel: DefaultCharacterSelectionViewModel(state: .initial),
-                            coder: coder
-                        )
-                        return viewController
-                    }
-                )
+                let viewController = AppDIContainer()
+                    .makeDIContainer()
+                    .makeCharacterSelectionViewController(state: .initial)
 
                 let nav = UINavigationController(rootViewController: viewController)
 
