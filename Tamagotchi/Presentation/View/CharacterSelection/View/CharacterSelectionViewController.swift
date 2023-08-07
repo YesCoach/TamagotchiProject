@@ -21,6 +21,15 @@ extension CharacterSelectionState {
             return "다마고치 변경하기"
         }
     }
+
+    var buttonTitle: String {
+        switch self {
+        case .initial:
+            return "시작하기"
+        case .change:
+            return "변경하기"
+        }
+    }
 }
 
 

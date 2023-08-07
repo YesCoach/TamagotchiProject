@@ -57,7 +57,7 @@ final class DefaultCharacterDetailPopUpViewModel: CharacterDetailPopUpViewModel 
         thumbnailImageName.value = tamagotchiType.thumbnailImage
         nameButtonTitle.value = tamagotchiType.name
         infoLabelText.value = tamagotchiType.description
-        okButtonTitle.value = state == .initial ? "시작하기" : "변경하기"
+        okButtonTitle.value = state.buttonTitle
     }
 
 }
