@@ -48,8 +48,8 @@ extension DefaultSettingNameChangeViewModel {
         let nicknameLength = newName.count
         guard nicknameLength > 1 && nicknameLength < 7
         else {
-            isNewNameUnavailable.value = true
             isNewNameUnavailable.value = false
+            isNewNameUnavailable.value = true
             return
         }
 

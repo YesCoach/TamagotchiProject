@@ -12,6 +12,7 @@
 		8915F5192A80E0AB00427768 /* MockCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F5182A80E0AB00427768 /* MockCharacterUseCase.swift */; };
 		8915F51B2A80E0CB00427768 /* MockUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F51A2A80E0CB00427768 /* MockUserUseCase.swift */; };
 		8915F51F2A80E63200427768 /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F51E2A80E63200427768 /* SettingViewModelTests.swift */; };
+		8915F5212A80F3CB00427768 /* SettingNameChangeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F5202A80F3CB00427768 /* SettingNameChangeViewModelTests.swift */; };
 		8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428C2A7E628A00C8460E /* UIAlertController+.swift */; };
 		8954428F2A7E79F000C8460E /* TamagotchiStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428E2A7E79F000C8460E /* TamagotchiStory.swift */; };
 		895442912A7EA41600C8460E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442902A7EA41600C8460E /* UIViewController+.swift */; };
@@ -76,6 +77,7 @@
 		8915F5182A80E0AB00427768 /* MockCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacterUseCase.swift; sourceTree = "<group>"; };
 		8915F51A2A80E0CB00427768 /* MockUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserUseCase.swift; sourceTree = "<group>"; };
 		8915F51E2A80E63200427768 /* SettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
+		8915F5202A80F3CB00427768 /* SettingNameChangeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameChangeViewModelTests.swift; sourceTree = "<group>"; };
 		8954428C2A7E628A00C8460E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		8954428E2A7E79F000C8460E /* TamagotchiStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiStory.swift; sourceTree = "<group>"; };
 		895442902A7EA41600C8460E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				8915F5132A80D91100427768 /* CharacterSelectionViewModelTests.swift */,
 				8915F5152A80DF4300427768 /* CharacterDetailPopUpViewModelTests.swift */,
 				8915F51E2A80E63200427768 /* SettingViewModelTests.swift */,
+				8915F5202A80F3CB00427768 /* SettingNameChangeViewModelTests.swift */,
 			);
 			path = TamagotchiTests;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8915F5212A80F3CB00427768 /* SettingNameChangeViewModelTests.swift in Sources */,
 				8954431B2A80C7F700C8460E /* TamagotchiTests.swift in Sources */,
 				89D5771C2A80CDED005614EB /* MainViewModelTests.swift in Sources */,
 				8915F5162A80DF4300427768 /* CharacterDetailPopUpViewModelTests.swift in Sources */,
