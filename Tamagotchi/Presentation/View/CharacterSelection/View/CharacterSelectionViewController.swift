@@ -75,7 +75,7 @@ private extension CharacterSelectionViewController {
     func configureUI() {
         configureNavigationItem()
         configureCollectionView()
-        configureStatusBarColor(with: .background)
+        view.backgroundColor = .background
         collectionView.backgroundColor = .background
     }
 

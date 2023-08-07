@@ -56,7 +56,6 @@ private extension SettingViewController {
         view.backgroundColor = .background
 
         configureNavigationItem()
-        configureStatusBarColor(with: .background)
     }
 
     func configureNavigationItem() {

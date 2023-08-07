@@ -15,7 +15,6 @@
 		8915F5212A80F3CB00427768 /* SettingNameChangeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F5202A80F3CB00427768 /* SettingNameChangeViewModelTests.swift */; };
 		8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428C2A7E628A00C8460E /* UIAlertController+.swift */; };
 		8954428F2A7E79F000C8460E /* TamagotchiStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428E2A7E79F000C8460E /* TamagotchiStory.swift */; };
-		895442912A7EA41600C8460E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442902A7EA41600C8460E /* UIViewController+.swift */; };
 		895442982A7F2E9B00C8460E /* CustomObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442972A7F2E9B00C8460E /* CustomObservable.swift */; };
 		8954429A2A7F2F3D00C8460E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442992A7F2F3D00C8460E /* MainViewModel.swift */; };
 		8954429E2A7FBB4C00C8460E /* CharacterDetailPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954429D2A7FBB4C00C8460E /* CharacterDetailPopUpViewModel.swift */; };
@@ -80,7 +79,6 @@
 		8915F5202A80F3CB00427768 /* SettingNameChangeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameChangeViewModelTests.swift; sourceTree = "<group>"; };
 		8954428C2A7E628A00C8460E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		8954428E2A7E79F000C8460E /* TamagotchiStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiStory.swift; sourceTree = "<group>"; };
-		895442902A7EA41600C8460E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		895442972A7F2E9B00C8460E /* CustomObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObservable.swift; sourceTree = "<group>"; };
 		895442992A7F2F3D00C8460E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8954429D2A7FBB4C00C8460E /* CharacterDetailPopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPopUpViewModel.swift; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 				89CA34092A7D11C300DA1978 /* UIButtonConfiguration+.swift */,
 				89CA34042A7CE69B00DA1978 /* UILabel+.swift */,
 				89CA340B2A7D1D6100DA1978 /* UITextField+.swift */,
-				895442902A7EA41600C8460E /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -618,7 +615,6 @@
 				895442BA2A7FF6C100C8460E /* CharacterStorage.swift in Sources */,
 				89CA33FA2A7CD5EA00DA1978 /* Tamagotchi.swift in Sources */,
 				89CA340F2A7D28A000DA1978 /* UserDefaultsManager.swift in Sources */,
-				895442912A7EA41600C8460E /* UIViewController+.swift in Sources */,
 				895442AD2A7FE0B400C8460E /* CharacterUseCase.swift in Sources */,
 				8954428F2A7E79F000C8460E /* TamagotchiStory.swift in Sources */,
 				8915F5192A80E0AB00427768 /* MockCharacterUseCase.swift in Sources */,
