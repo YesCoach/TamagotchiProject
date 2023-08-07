@@ -17,9 +17,13 @@ protocol UserUseCase {
 
 }
 
-final class DefaultUserUseCase: UserUseCase {
+final class DefaultUserUseCase {
+
+    // MARK: - Dependency
 
     private let userRepository: UserRepository
+
+    // MARK: - Dependency Injection
 
     init(userRepository: UserRepository = DefaultUserRepository()) {
         self.userRepository = userRepository
@@ -27,7 +31,9 @@ final class DefaultUserUseCase: UserUseCase {
 
 }
 
-extension DefaultUserUseCase {
+// MARK: - UserUseCase 구현부
+
+extension DefaultUserUseCase: UserUseCase {
 
     func saveIsLaunchedValue(_ isLaunched: Bool) {
         userRepository.saveIsLaunchedValue(isLaunched)

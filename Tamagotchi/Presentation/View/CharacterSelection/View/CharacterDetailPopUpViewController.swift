@@ -73,7 +73,7 @@ final class CharacterDetailPopUpViewController: UIViewController {
 
 }
 
-// MARK: - Private Method
+// MARK: - Private Methods
 
 private extension CharacterDetailPopUpViewController {
 

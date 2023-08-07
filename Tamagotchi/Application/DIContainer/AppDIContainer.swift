@@ -17,5 +17,6 @@ final class AppDIContainer {
         
         return DIContainer(dependencies: dependencies)
     }
+    
 }
 

@@ -24,6 +24,8 @@ protocol SettingNameChangeViewModel: SettingNameChangeViewModelInput,
 
 final class DefaultSettingNameChangeViewModel: SettingNameChangeViewModel {
 
+    // MARK: - Dependency
+
     private let userUseCase: UserUseCase
 
     // MARK: - Output

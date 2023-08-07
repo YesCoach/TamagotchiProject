@@ -23,17 +23,21 @@ protocol CharacterSelectionViewModel: CharacterSelectionViewModelInput,
 
 final class DefaultCharacterSelectionViewModel: CharacterSelectionViewModel {
 
-    private let state: CharacterSelectionState
+    // MARK: - Properties
 
-    init(state: CharacterSelectionState) {
-        self.state = state
-    }
+    private let state: CharacterSelectionState
 
     // MARK: - Output
 
     let dataList: CustomObservable<[TamagotchiType]> = .init(TamagotchiType.allCases)
     let navigationItemTitle: CustomObservable<String> = .init("")
     let viewState: CustomObservable<CharacterSelectionState> = .init(.initial)
+
+    // MARK: - Initializer
+
+    init(state: CharacterSelectionState) {
+        self.state = state
+    }
 
 }
 
@@ -47,6 +51,8 @@ extension DefaultCharacterSelectionViewModel {
     }
 
 }
+
+// MARK: - Private Methods
 
 private extension DefaultCharacterSelectionViewModel {
 

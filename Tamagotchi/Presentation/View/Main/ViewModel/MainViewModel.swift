@@ -26,8 +26,18 @@ protocol MainViewModel: MainViewModelInput, MainViewModelOutput { }
 
 final class DefaultMainViewModel: MainViewModel {
 
+    // MARK: - Dependency
+
     private let characterUseCase: CharacterUseCase
     private let userUseCase: UserUseCase
+
+    // MARK: - Output
+
+    let tamagotchi: CustomObservable<Tamagotchi?> = .init(nil)
+    let tamagotchhiStory: CustomObservable<String> = .init("")
+    let userName: CustomObservable<String> = .init("")
+
+    // MARK: - Dependency Injection
 
     init(
         characterUseCase: CharacterUseCase = DefaultCharacterUseCase(),
@@ -38,12 +48,6 @@ final class DefaultMainViewModel: MainViewModel {
 
         tamagotchi.value = characterUseCase.loadCharacter()
     }
-
-    // MARK: - Output
-
-    let tamagotchi: CustomObservable<Tamagotchi?> = .init(nil)
-    let tamagotchhiStory: CustomObservable<String> = .init("")
-    let userName: CustomObservable<String> = .init("")
 
 }
 

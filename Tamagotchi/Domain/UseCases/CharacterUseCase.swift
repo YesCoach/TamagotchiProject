@@ -18,13 +18,19 @@ protocol CharacterUseCase {
 
 final class DefaultCharacterUseCase {
 
+    // MARK: - Dependency
+
     private let characterRepository: CharacterRepository
+
+    // MARK: - Dependency Injection
 
     init(characterRepository: CharacterRepository = DefaultCharacterRepository()) {
         self.characterRepository = characterRepository
     }
 
 }
+
+// MARK: - CharacterUseCase 구현부
 
 extension DefaultCharacterUseCase: CharacterUseCase {
 

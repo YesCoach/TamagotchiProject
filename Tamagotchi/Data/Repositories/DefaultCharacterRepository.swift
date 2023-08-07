@@ -9,12 +9,19 @@ import Foundation
 
 final class DefaultCharacterRepository {
 
+    // MARK: - Dependency
+
     private let characterStorage: CharacterStorage
+
+    // MARK: - Dependency Injection
 
     init(characterStorage: CharacterStorage = UserDefaultsCharacter()) {
         self.characterStorage = characterStorage
     }
+
 }
+
+// MARK: - CharacterRepository 구현부
 
 extension DefaultCharacterRepository: CharacterRepository {
 

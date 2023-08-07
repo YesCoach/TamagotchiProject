@@ -22,6 +22,8 @@ protocol SettingViewModel: SettingViewModelInput, SettingViewModelOutput { }
 
 final class DefaultSettingViewModel: SettingViewModel {
 
+    // MARK: - Dependency
+
     private let characterUseCase: CharacterUseCase
     private let userUseCase: UserUseCase
 

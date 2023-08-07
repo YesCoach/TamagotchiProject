@@ -25,6 +25,8 @@ final class MainViewController: UIViewController {
     @IBOutlet var waterButton: UIButton!
     @IBOutlet var settingBarButtonItem: UIBarButtonItem!
 
+    // MARK: - Properties
+
     private let viewModel: MainViewModel
 
     // MARK: - Initializer
@@ -74,9 +76,10 @@ final class MainViewController: UIViewController {
 
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
 }
 
-// MARK: - Method
+// MARK: - Methods
 
 extension MainViewController {
 
@@ -98,7 +101,7 @@ extension MainViewController {
 
 }
 
-// MARK: - Private Method
+// MARK: - Private Methods
 
 private extension MainViewController {
 
@@ -152,4 +155,5 @@ private extension MainViewController {
         navigationController?.navigationBar.tintColor = .border
         navigationController?.navigationBar.barTintColor = .background
     }
+
 }

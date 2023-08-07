@@ -14,6 +14,7 @@ enum SettingType: Int, CaseIterable {
 }
 
 extension SettingType {
+    
     var title: String {
         switch self {
         case .nameChange: return "내 이름 설정하기"

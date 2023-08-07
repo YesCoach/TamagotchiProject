@@ -16,6 +16,8 @@ final class SettingViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
+    // MARK: - Properties
+
     private let viewModel: SettingViewModel
 
     // MARK: - Initializer

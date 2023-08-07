@@ -28,8 +28,12 @@ protocol CharacterDetailPopUpViewModel: CharacterDetailPopUpViewModelInput,
 
 final class DefaultCharacterDetailPopUpViewModel: CharacterDetailPopUpViewModel {
 
+    // MARK: - Dependency
+
     private let characterUseCase: CharacterUseCase
     private let userUseCase: UserUseCase
+
+    // MARK: - Properties
 
     private let tamagotchiType: TamagotchiType
     private let state: CharacterSelectionState

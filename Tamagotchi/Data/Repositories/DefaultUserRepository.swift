@@ -9,13 +9,19 @@ import Foundation
 
 final class DefaultUserRepository {
 
+    // MARK: - Dependency
+
     private let userStorage: UserStorage
+
+    // MARK: - Dependency Injection
 
     init(userStorage: UserStorage = UserDefaultsUser()) {
         self.userStorage = userStorage
     }
 
 }
+
+// MARK: - UserRepository 구현부
 
 extension DefaultUserRepository: UserRepository {
 
