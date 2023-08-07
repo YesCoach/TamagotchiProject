@@ -14,7 +14,6 @@ final class SettingViewController: UIViewController {
 
     // MARK: - UI Components
 
-    @IBOutlet var dismissButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
 
     private let viewModel: SettingViewModel
@@ -43,12 +42,6 @@ final class SettingViewController: UIViewController {
         viewModel.viewWillAppear()
     }
 
-    // MARK: - Actions
-
-    @IBAction func didDismissButtonTouched() {
-        navigationController?.popViewController(animated: true)
-    }
-
 }
 
 // MARK: - Private Methods
@@ -68,8 +61,6 @@ private extension SettingViewController {
 
     func configureNavigationItem() {
         navigationItem.title = "설정"
-        dismissButton.image = .init(systemName: "chevron.left")
-        navigationController?.navigationBar.backgroundColor = .background
     }
 
     func bindingViewModel() {

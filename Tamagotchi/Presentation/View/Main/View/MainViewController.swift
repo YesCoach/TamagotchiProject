@@ -146,6 +146,7 @@ private extension MainViewController {
 
     func configureNavigationItem() {
         settingBarButtonItem.image = .init(systemName: "person.circle")
+        navigationItem.backButtonTitle = ""
     }
 
     func configureNavigationBar() {

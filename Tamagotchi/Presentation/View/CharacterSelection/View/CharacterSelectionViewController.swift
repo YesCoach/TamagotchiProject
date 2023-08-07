@@ -60,8 +60,10 @@ private extension CharacterSelectionViewController {
     }
 
     func configureNavigationItem() {
-        navigationController?.navigationBar.barTintColor = .background
-        navigationController?.navigationBar.backgroundColor = .background
+        if viewModel.viewState.value == .initial {
+            navigationController?.navigationBar.barTintColor = .background
+            navigationController?.navigationBar.backgroundColor = .background
+        }
     }
 
     func configureCollectionView() {
