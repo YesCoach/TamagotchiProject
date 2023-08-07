@@ -51,7 +51,7 @@ extension DefaultCharacterSelectionViewModel {
 private extension DefaultCharacterSelectionViewModel {
 
     func configureNaivgationItemTitle() {
-        navigationItemTitle.value = state == .initial ? "다마고치 선택하기" : "다마고치 변경하기"
+        navigationItemTitle.value = state.title
     }
 
 }

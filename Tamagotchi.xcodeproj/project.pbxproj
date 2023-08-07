@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8915F5142A80D91100427768 /* CharacterSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F5132A80D91100427768 /* CharacterSelectionViewModelTests.swift */; };
 		8954428D2A7E628A00C8460E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428C2A7E628A00C8460E /* UIAlertController+.swift */; };
 		8954428F2A7E79F000C8460E /* TamagotchiStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954428E2A7E79F000C8460E /* TamagotchiStory.swift */; };
 		895442912A7EA41600C8460E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442902A7EA41600C8460E /* UIViewController+.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8915F5132A80D91100427768 /* CharacterSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewModelTests.swift; sourceTree = "<group>"; };
 		8954428C2A7E628A00C8460E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		8954428E2A7E79F000C8460E /* TamagotchiStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiStory.swift; sourceTree = "<group>"; };
 		895442902A7EA41600C8460E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				8954431A2A80C7F700C8460E /* TamagotchiTests.swift */,
 				89D5771B2A80CDED005614EB /* MainViewModelTests.swift */,
+				8915F5132A80D91100427768 /* CharacterSelectionViewModelTests.swift */,
 			);
 			path = TamagotchiTests;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 			files = (
 				8954431B2A80C7F700C8460E /* TamagotchiTests.swift in Sources */,
 				89D5771C2A80CDED005614EB /* MainViewModelTests.swift in Sources */,
+				8915F5142A80D91100427768 /* CharacterSelectionViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

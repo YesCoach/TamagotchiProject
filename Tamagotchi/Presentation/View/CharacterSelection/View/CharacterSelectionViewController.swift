@@ -12,6 +12,17 @@ enum CharacterSelectionState {
     case change
 }
 
+extension CharacterSelectionState {
+    var title: String {
+        switch self {
+        case .initial:
+            return "다마고치 선택하기"
+        case .change:
+            return "다마고치 변경하기"
+        }
+    }
+}
+
 
 final class CharacterSelectionViewController: UIViewController {
 
