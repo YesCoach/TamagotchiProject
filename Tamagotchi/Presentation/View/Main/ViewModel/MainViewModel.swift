@@ -12,7 +12,6 @@ protocol MainViewModelInput {
     func didRiceButtonTouched(count: Int)
     func didWaterButtonTouched(count: Int)
     func willTamagotchiStoryChange()
-    func viewDidLoad()
     func viewWillAppear()
 }
 
@@ -37,6 +36,8 @@ final class DefaultMainViewModel: MainViewModel {
     ) {
         self.characterUseCase = characterUseCase
         self.userUseCase = userUseCase
+
+        tamagotchi.value = characterUseCase.loadCharacter()
     }
 
     // MARK: - Output
@@ -61,10 +62,6 @@ extension DefaultMainViewModel {
 
     func willTamagotchiStoryChange() {
         tamagotchhiStory.value = TamagotchiStory.randomStory()
-    }
-
-    func viewDidLoad() {
-        tamagotchi.value = characterUseCase.loadCharacter()
     }
 
     func viewWillAppear() {

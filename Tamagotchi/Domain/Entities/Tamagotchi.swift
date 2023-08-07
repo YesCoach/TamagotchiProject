@@ -8,7 +8,7 @@
 import Foundation
 
 struct Tamagotchi {
-    var type: TamagotchiType
+    var type: TamagotchiType = .bangsil
     var rice: Int = 0
     var water: Int = 0
 }

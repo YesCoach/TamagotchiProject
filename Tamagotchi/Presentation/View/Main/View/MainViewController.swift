@@ -43,7 +43,6 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        viewModel.viewDidLoad()
         bindingViewModel()
     }
 

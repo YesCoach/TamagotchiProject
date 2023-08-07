@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "31D105A3-6EE7-4409-8133-88FADBAFF208",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Tamagotchi.xcodeproj",
+      "identifier" : "89CA33D42A7C9CED00DA1978",
+      "name" : "Tamagotchi"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Tamagotchi.xcodeproj",
+        "identifier" : "895443172A80C7F700C8460E",
+        "name" : "TamagotchiTests"
+      }
+    }
+  ],
+  "version" : 1
+}
