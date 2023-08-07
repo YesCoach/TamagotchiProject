@@ -48,7 +48,6 @@ final class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureRandomBubbleLabel()
         viewModel.viewWillAppear()
     }
 
@@ -57,13 +56,11 @@ final class MainViewController: UIViewController {
     @IBAction func didRiceButtonTouched(_ sender: UIButton) {
         viewModel.didRiceButtonTouched(count: Int(riceTextField.text!) ?? 1)
         riceTextField.text = nil
-        configureRandomBubbleLabel()
     }
 
     @IBAction func didWaterButtonTouched(_ sender: UIButton) {
         viewModel.didWaterButtonTouched(count: Int(waterTextField.text!) ?? 1)
         waterTextField.text = nil
-        configureRandomBubbleLabel()
     }
 
     @IBAction func didBackgroudViewTouched(_ sender: UITapGestureRecognizer) {
@@ -154,9 +151,5 @@ private extension MainViewController {
         ]
         navigationController?.navigationBar.tintColor = .border
         navigationController?.navigationBar.barTintColor = .background
-    }
-
-    func configureRandomBubbleLabel() {
-        viewModel.willTamagotchiStoryChange()
     }
 }

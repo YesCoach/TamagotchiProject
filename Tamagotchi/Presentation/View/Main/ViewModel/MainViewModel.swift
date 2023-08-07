@@ -11,7 +11,6 @@ protocol MainViewModelInput {
 
     func didRiceButtonTouched(count: Int)
     func didWaterButtonTouched(count: Int)
-    func willTamagotchiStoryChange()
     func viewWillAppear()
 }
 
@@ -60,13 +59,9 @@ extension DefaultMainViewModel {
         feedWater(count: count)
     }
 
-    func willTamagotchiStoryChange() {
-        tamagotchhiStory.value = TamagotchiStory.randomStory()
-    }
-
     func viewWillAppear() {
         userName.value = userUseCase.loadUserName()
-        willTamagotchiStoryChange()
+        createRandomTamagotchiStory()
     }
 
 }
@@ -76,20 +71,26 @@ extension DefaultMainViewModel {
 private extension DefaultMainViewModel {
 
     func feedRice(count: Int) {
-        let count = count < 100 ? count : 0
+        guard count < 100 else { return }
         
         tamagotchi.value?.rice += count
         if let tamagotchi = tamagotchi.value {
             characterUseCase.saveCharacter(with: tamagotchi)
         }
+        createRandomTamagotchiStory()
     }
 
     func feedWater(count: Int) {
-        let count = count < 50 ? count : 0
+        guard count < 50 else { return }
 
         tamagotchi.value?.water += count
         if let tamagotchi = tamagotchi.value {
             characterUseCase.saveCharacter(with: tamagotchi)
         }
+        createRandomTamagotchiStory()
+    }
+
+    func createRandomTamagotchiStory() {
+        tamagotchhiStory.value = TamagotchiStory.randomStory()
     }
 }

@@ -71,17 +71,6 @@ final class MainViewModelTests: XCTestCase {
         XCTAssertEqual(sut.tamagotchi.value!.water, 0)
     }
 
-    func test_willTamagotchiStoryChange_StoryValueNotNil() {
-        // given
-        let defaultValue = ""
-
-        // when
-        sut.willTamagotchiStoryChange()
-
-        // then
-        XCTAssertNotEqual(sut.tamagotchhiStory.value, defaultValue)
-    }
-
     func test_viewWillAppear_userNameWillLoaded() {
         // given
         let defaultName = "대장"
@@ -91,5 +80,15 @@ final class MainViewModelTests: XCTestCase {
 
         // then
         XCTAssertEqual(sut.userName.value, defaultName)
+    }
+
+    func test_viewWillAppear_randomTamagotchiStoryIsCreated() {
+        // given
+
+        // when
+        sut.viewWillAppear()
+
+        // then
+        XCTAssertNotEqual(sut.tamagotchhiStory.value, "")
     }
 }
