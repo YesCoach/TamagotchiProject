@@ -26,6 +26,8 @@
 		895442C42A7FFBDB00C8460E /* DefaultUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442C32A7FFBDB00C8460E /* DefaultUserRepository.swift */; };
 		895442C72A7FFC2400C8460E /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442C62A7FFC2400C8460E /* UserStorage.swift */; };
 		895442C92A7FFC5800C8460E /* UserDefaultsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442C82A7FFC5800C8460E /* UserDefaultsUser.swift */; };
+		895442E12A80954700C8460E /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442E02A80954700C8460E /* DIContainer.swift */; };
+		895442E32A80957800C8460E /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442E22A80957800C8460E /* AppDIContainer.swift */; };
 		89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */; };
 		89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */; };
 		89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DC2A7C9CED00DA1978 /* CharacterSelectionViewController.swift */; };
@@ -71,6 +73,8 @@
 		895442C32A7FFBDB00C8460E /* DefaultUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserRepository.swift; sourceTree = "<group>"; };
 		895442C62A7FFC2400C8460E /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		895442C82A7FFC5800C8460E /* UserDefaultsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUser.swift; sourceTree = "<group>"; };
+		895442E02A80954700C8460E /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		895442E22A80957800C8460E /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		89CA33D52A7C9CED00DA1978 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +282,15 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		895442E42A80958600C8460E /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				895442E02A80954700C8460E /* DIContainer.swift */,
+				895442E22A80957800C8460E /* AppDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
 		89CA33CC2A7C9CED00DA1978 = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 			children = (
 				89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */,
 				89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */,
+				895442E42A80958600C8460E /* DIContainer */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -508,7 +522,9 @@
 				89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */,
 				895442C72A7FFC2400C8460E /* UserStorage.swift in Sources */,
 				8954429A2A7F2F3D00C8460E /* MainViewModel.swift in Sources */,
+				895442E32A80957800C8460E /* AppDIContainer.swift in Sources */,
 				89CA33F62A7CCBB300DA1978 /* UIColor+.swift in Sources */,
+				895442E12A80954700C8460E /* DIContainer.swift in Sources */,
 				895442B32A7FF47E00C8460E /* CharacterRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

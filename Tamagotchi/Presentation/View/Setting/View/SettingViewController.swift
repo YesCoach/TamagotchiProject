@@ -145,7 +145,7 @@ extension SettingViewController: UITableViewDelegate {
                 identifier: CharacterSelectionViewController.identifier,
                 creator: { coder in
                     let viewController = CharacterSelectionViewController(
-                        viewModel: DefaultCharacterSelectionViewModel(status: .change),
+                        viewModel: DefaultCharacterSelectionViewModel(state: .change),
                         coder: coder
                     )
                     return viewController
@@ -174,7 +174,7 @@ extension SettingViewController: UITableViewDelegate {
                     identifier: CharacterSelectionViewController.identifier,
                     creator: { coder in
                         let viewController = CharacterSelectionViewController(
-                            viewModel: DefaultCharacterSelectionViewModel(status: .initial),
+                            viewModel: DefaultCharacterSelectionViewModel(state: .initial),
                             coder: coder
                         )
                         return viewController

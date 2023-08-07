@@ -23,10 +23,10 @@ protocol CharacterSelectionViewModel: CharacterSelectionViewModelInput,
 
 final class DefaultCharacterSelectionViewModel: CharacterSelectionViewModel {
 
-    private let status: CharacterSelectionState
+    private let state: CharacterSelectionState
 
-    init(status: CharacterSelectionState) {
-        self.status = status
+    init(state: CharacterSelectionState) {
+        self.state = state
     }
 
     // MARK: - Output
@@ -43,7 +43,7 @@ extension DefaultCharacterSelectionViewModel {
 
     func viewDidLoad() {
         configureNaivgationItemTitle()
-        viewState.value = status
+        viewState.value = state
     }
 
 }
@@ -51,7 +51,7 @@ extension DefaultCharacterSelectionViewModel {
 private extension DefaultCharacterSelectionViewModel {
 
     func configureNaivgationItemTitle() {
-        navigationItemTitle.value = status == .initial ? "다마고치 선택하기" : "다마고치 변경하기"
+        navigationItemTitle.value = state == .initial ? "다마고치 선택하기" : "다마고치 변경하기"
     }
 
 }
