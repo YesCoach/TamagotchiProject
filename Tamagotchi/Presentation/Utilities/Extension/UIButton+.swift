@@ -5,7 +5,7 @@
 //  Created by 박태현 on 2023/08/04.
 //
 
-import UIKit
+import UIKit.UIButton
 
 extension UIButton {
 
