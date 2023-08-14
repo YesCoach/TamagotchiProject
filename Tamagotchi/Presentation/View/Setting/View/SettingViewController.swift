@@ -85,18 +85,14 @@ extension SettingViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SettingTableViewCell.identifier,
+            for: indexPath
+        ) as? SettingTableViewCell
         else { return UITableViewCell() }
 
         let type = viewModel.dataList.value[indexPath.row]
-
-        cell.imageView?.image = .init(systemName: type.imageName)
-        cell.textLabel?.text = type.title
-        cell.textLabel?.font = .systemFont(ofSize: 14.0, weight: .regular)
-        cell.accessoryType = .disclosureIndicator
-        cell.tintColor = .border
-        cell.detailTextLabel?.text = (type == .nameChange) ? viewModel.currentNickName.value : nil
-        cell.backgroundColor = .background
+        cell.configure(type: type, nickname: viewModel.currentNickName.value)
 
         return cell
     }
