@@ -23,8 +23,10 @@ class CharacterSelectionCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
-        imageView.image = nil
+        super.prepareForReuse()
+        imageView.image = .init(systemName: "questionmark")
         nameButton.setTitle(nil, for: .normal)
+        nameButton.setTitle("준비중", for: .normal)
     }
 
 }
