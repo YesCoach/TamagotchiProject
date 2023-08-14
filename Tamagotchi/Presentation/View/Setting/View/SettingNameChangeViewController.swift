@@ -9,8 +9,6 @@ import UIKit
 
 final class SettingNameChangeViewController: UIViewController {
 
-    static let identifier = "SettingNameChangeViewController"
-
     // MARK: - UI Components
 
     @IBOutlet var nicknameTextField: UITextField!

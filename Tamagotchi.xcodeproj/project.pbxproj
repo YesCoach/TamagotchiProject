@@ -34,6 +34,7 @@
 		895442E12A80954700C8460E /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442E02A80954700C8460E /* DIContainer.swift */; };
 		895442E32A80957800C8460E /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442E22A80957800C8460E /* AppDIContainer.swift */; };
 		8954431B2A80C7F700C8460E /* TamagotchiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8954431A2A80C7F700C8460E /* TamagotchiTests.swift */; };
+		897E91C62A8A66BA005083BF /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E91C52A8A66BA005083BF /* ReusableView.swift */; };
 		89CA33D92A7C9CED00DA1978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */; };
 		89CA33DB2A7C9CED00DA1978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */; };
 		89CA33DD2A7C9CED00DA1978 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33DC2A7C9CED00DA1978 /* CharacterSelectionViewController.swift */; };
@@ -99,6 +100,7 @@
 		895442E22A80957800C8460E /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		895443182A80C7F700C8460E /* TamagotchiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TamagotchiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8954431A2A80C7F700C8460E /* TamagotchiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiTests.swift; sourceTree = "<group>"; };
+		897E91C52A8A66BA005083BF /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		89CA33D52A7C9CED00DA1978 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CA33D82A7C9CED00DA1978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CA33DA2A7C9CED00DA1978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				89CA33F42A7CCB3D00DA1978 /* Extension */,
 				895442972A7F2E9B00C8460E /* CustomObservable.swift */,
+				897E91C52A8A66BA005083BF /* ReusableView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				89CA33FE2A7CDED900DA1978 /* CharacterDetailPopUpViewController.swift in Sources */,
 				89CA34182A7E506100DA1978 /* SettingType.swift in Sources */,
 				89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */,
+				897E91C62A8A66BA005083BF /* ReusableView.swift in Sources */,
 				895442C72A7FFC2400C8460E /* UserStorage.swift in Sources */,
 				8954429A2A7F2F3D00C8460E /* MainViewModel.swift in Sources */,
 				895442E32A80957800C8460E /* AppDIContainer.swift in Sources */,

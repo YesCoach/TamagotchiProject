@@ -35,8 +35,6 @@ extension CharacterSelectionState {
 
 final class CharacterSelectionViewController: UIViewController {
 
-    static let identifier = "CharacterSelectionViewController"
-
     // MARK: - UI Components
 
     @IBOutlet var collectionView: UICollectionView!

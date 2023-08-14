@@ -9,7 +9,6 @@ import UIKit
 
 final class SettingViewController: UIViewController {
 
-    static let identifier = "SettingViewController"
     private let cellIdentifier = "SettingCell"
 
     // MARK: - UI Components

@@ -9,8 +9,6 @@ import UIKit
 
 class CharacterSelectionCell: UICollectionViewCell {
 
-    static let identifier = "CharacterSelectionCell"
-
     // MARK: - UI Components
 
     @IBOutlet var imageView: UIImageView!

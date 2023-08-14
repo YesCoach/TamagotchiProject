@@ -9,8 +9,6 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    static let identifier = "MainViewController"
-
     // MARK: - UI Components
 
     @IBOutlet var contentView: UIView!

@@ -9,8 +9,6 @@ import UIKit
 
 final class CharacterDetailPopUpViewController: UIViewController {
 
-    static let identifier = "CharacterDetailPopUpViewController"
-
     // MARK: - UI Components
 
     @IBOutlet var popUpview: UIView!
