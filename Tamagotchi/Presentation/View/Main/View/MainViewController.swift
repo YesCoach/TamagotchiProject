@@ -83,17 +83,27 @@ extension MainViewController {
 
     func bindingViewModel() {
         viewModel.tamagotchi.bind { [weak self] tamagotchi in
+            guard let self else { return }
             if let tamagotchi {
-                self?.tamagotchiImageView.image = .init(named: tamagotchi.imageName)
-                self?.nameButton.setTitle(tamagotchi.type.name, for: .normal)
-                self?.statusLabel.text = tamagotchi.info
+                tamagotchiImageView.image = .init(named: tamagotchi.imageName)
+                nameButton.setTitle(tamagotchi.type.name, for: .normal)
+                statusLabel.text = tamagotchi.info
             }
         }
         viewModel.tamagotchhiStory.bind { [weak self] tamagotchiStory in
-            self?.bubbleLabel.text = tamagotchiStory
+            guard let self else { return }
+            bubbleLabel.text = tamagotchiStory
         }
         viewModel.userName.bind { [weak self] name in
-            self?.navigationItem.title = "\(name)님의 다마고치"
+            guard let self else { return }
+            navigationItem.title = "\(name)님의 다마고치"
+        }
+        viewModel.invalidFeedingAlertMessage.bind { [weak self] message in
+            guard let self, let message else { return }
+            present(
+                UIAlertController.simpleConfirmAlert(message: message),
+                animated: true
+            )
         }
     }
 
