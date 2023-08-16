@@ -76,13 +76,9 @@ extension SettingNameChangeViewController {
             self?.nicknameTextField.placeholder = "\(name)님 이름을 알려주세요!"
             self?.navigationItem.title = "\(name)님 이름 정하기"
         }
-        viewModel.isNewNameUnavailable.bind { [weak self] isUnavailable in
-            if isUnavailable {
-                let alertController = UIAlertController.simpleConfirmAlert(
-                    message: "이름은 2글자 이상 6글자 이하까지 가능해요!"
-                )
-                self?.present(alertController, animated: true)
-            }
+        viewModel.invalidNewNameErrorMessage.bind { [weak self] errorMessage in
+            guard let self, let errorMessage else { return }
+            present(UIAlertController.simpleConfirmAlert(message: errorMessage), animated: true)
         }
         viewModel.isNameChangeCompleted.bind { [weak self] isCompleted in
             if isCompleted {

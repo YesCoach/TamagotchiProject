@@ -8,13 +8,17 @@
 import Foundation
 
 protocol SettingViewModelInput {
+
     func viewWillAppear()
     func willDataReset()
+
 }
 
 protocol SettingViewModelOutput {
+
     var dataList: CustomObservable<[SettingType]> { get }
     var currentNickName: CustomObservable<String> { get }
+
 }
 
 protocol SettingViewModel: SettingViewModelInput, SettingViewModelOutput { }

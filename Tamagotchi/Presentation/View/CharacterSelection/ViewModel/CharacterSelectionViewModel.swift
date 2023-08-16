@@ -8,14 +8,17 @@
 import Foundation
 
 protocol CharacterSelectionViewModelInput {
+
     func viewDidLoad()
 
 }
 
 protocol CharacterSelectionViewModelOutput {
+
     var dataList: CustomObservable<[TamagotchiType]> { get }
     var navigationItemTitle: CustomObservable<String> { get }
     var viewState: CustomObservable<CharacterSelectionState> { get }
+
 }
 
 protocol CharacterSelectionViewModel: CharacterSelectionViewModelInput,
