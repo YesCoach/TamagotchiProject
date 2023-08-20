@@ -73,6 +73,7 @@ extension DefaultCharacterDetailPopUpViewModel {
     func didOkButtonTouched() {
         characterUseCase.updateCharacterType(with: tamagotchiType)
         userUseCase.saveIsLaunchedValue(true)
+        NotificationManager.shared.sendFeedingNoticeNotification()
     }
 
 }

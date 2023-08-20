@@ -59,6 +59,7 @@ extension DefaultSettingViewModel {
     func willDataReset() {
         characterUseCase.resetCharacter()
         userUseCase.resetUser()
+        NotificationManager.shared.resignNotification(key: .feedingNotice)
     }
 
 }

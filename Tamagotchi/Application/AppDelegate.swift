@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
+        NotificationManager.shared.requestNotificationAuthority()
+        NotificationManager.shared.userNotification.delegate = self
+
         return true
     }
 
@@ -41,3 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - UNUserNotificationCenterDelegate 구현부
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([.sound, .badge, .banner, .list])
+    }
+}

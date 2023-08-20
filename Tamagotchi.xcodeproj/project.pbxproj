@@ -60,6 +60,7 @@
 		89CA34182A7E506100DA1978 /* SettingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34172A7E506100DA1978 /* SettingType.swift */; };
 		89CA341A2A7E5F5B00DA1978 /* SettingNameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA34192A7E5F5B00DA1978 /* SettingNameChangeViewController.swift */; };
 		89D5771C2A80CDED005614EB /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D5771B2A80CDED005614EB /* MainViewModelTests.swift */; };
+		89DCCE3F2A9051E800C3AFFE /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DCCE3E2A9051E800C3AFFE /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		89CA34192A7E5F5B00DA1978 /* SettingNameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameChangeViewController.swift; sourceTree = "<group>"; };
 		89D5771A2A80C8D0005614EB /* Tamagotchi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tamagotchi.xctestplan; sourceTree = "<group>"; };
 		89D5771B2A80CDED005614EB /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		89DCCE3E2A9051E800C3AFFE /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 			children = (
 				89CA340E2A7D28A000DA1978 /* UserDefaultsManager.swift */,
 				89CA34102A7D291900DA1978 /* UserDefaultsWrapper.swift */,
+				89DCCE3E2A9051E800C3AFFE /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				895442A42A7FC7AE00C8460E /* SettingNameChangeViewModel.swift in Sources */,
 				895442C42A7FFBDB00C8460E /* DefaultUserRepository.swift in Sources */,
 				89CA340A2A7D11C300DA1978 /* UIButtonConfiguration+.swift in Sources */,
+				89DCCE3F2A9051E800C3AFFE /* NotificationManager.swift in Sources */,
 				895442B62A7FF5EA00C8460E /* DefaultCharacterRepository.swift in Sources */,
 				895442982A7F2E9B00C8460E /* CustomObservable.swift in Sources */,
 				895442BF2A7FF89200C8460E /* UserDefaultsCharacter.swift in Sources */,
