@@ -19,8 +19,8 @@ final class MainViewController: UIViewController {
     @IBOutlet var statusLabel: UILabel!
     @IBOutlet var riceTextField: UITextField!
     @IBOutlet var waterTextField: UITextField!
-    @IBOutlet var riceButton: UIButton!
-    @IBOutlet var waterButton: UIButton!
+    @IBOutlet var riceButton: CustomButton!
+    @IBOutlet var waterButton: CustomButton!
     @IBOutlet var settingBarButtonItem: UIBarButtonItem!
 
     // MARK: - Properties
